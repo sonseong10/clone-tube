@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Spoqa Han Sans Neo";
+  src: url("../font/Spoqa\ Han\ Sans\ Regular.ttf");
+  src: url("../font/Spoqa\ Han\ Sans\ Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans Neo";
+  src: url("../font/Spoqa\ Han\ Sans\ Bold.ttf");
+  src: url("../font/Spoqa\ Han\ Sans\ Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
