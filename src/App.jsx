@@ -1,3 +1,5 @@
+import './assets/style/reset.css'
+import './assets/style/normalize.css'
 import './assets/style/font.css'
 import './assets/style/App.css'
 
