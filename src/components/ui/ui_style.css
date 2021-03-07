@@ -1,0 +1,34 @@
+.logo {
+  display: block;
+  width: 122px;
+  height: 26px;
+  background-image: url('../../assets/images/logo.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tooltip-box {
+  position: absolute;
+  display: none;
+  padding: 6px;
+  border-radius: 2px;
+  min-width: 100%;
+  background-color: #00000077;
+  font-size: 14px;
+  color: #fdfdfd;
+  text-align: center;
+}
+
+.gnb-tool-list .tool-item .tooltip-box {
+  left: 0;
+  top: 44px;
+  width: 52px;
+}
+
+#mirror:hover + .tooltip-box,
+#alarm:hover + .tooltip-box,
+#search:hover + .tooltip-box,
+#user:hover + .tooltip-box {
+  display: block;
+}

@@ -2,4 +2,12 @@
   font-family: 'Noto Sans KR', 'sans-serif';
 }
 
+.screen-out {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+  width: 1px;
+  height: 1px;
+  z-index: -100;
+  opacity: 0;
 }
