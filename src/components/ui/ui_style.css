@@ -21,8 +21,8 @@
 }
 
 .gnb-tool-list .tool-item .tooltip-box {
-  left: 0;
-  top: 44px;
+  left: -5px;
+  top: 63px;
   width: 52px;
 }
 
