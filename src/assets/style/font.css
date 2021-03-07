@@ -3,6 +3,7 @@
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 400;
+  display: block;
   src: url('../font/noto-sans-kr-v13-korean-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('../font/noto-sans-kr-v13-korean-regular.eot?#iefix')
@@ -23,6 +24,7 @@
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('../font/noto-sans-kr-v13-korean-700.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('../font/noto-sans-kr-v13-korean-700.eot?#iefix')
