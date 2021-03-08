@@ -27,8 +27,12 @@
 }
 
 #mirror:hover + .tooltip-box,
+#mirror:focus + .tooltip-box,
 #alarm:hover + .tooltip-box,
+#alarm:focus + .tooltip-box,
 #search:hover + .tooltip-box,
-#user:hover + .tooltip-box {
+#search:focus + .tooltip-box,
+#user:hover + .tooltip-box,
+#user:focus + .tooltip-box {
   display: block;
 }

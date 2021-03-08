@@ -1,19 +1,58 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Logo from '../ui/logo'
 import ToolTip from '../ui/tooltip'
 import './header.css'
 
 const HeaderGnb = () => {
+  const [historyItems, setHistoryItems] = useState([])
+  const inputRef = useRef()
+
   const handleSubmit = (event) => {
+    const value = inputRef.current.value
     event.preventDefault()
+    if (value) {
+      inputRef.current.blur()
+      handleSearch()
+      historyUpdate(value)
+    }
   }
+
+  const handleSearch = () => {
+    console.log('Hi')
+  }
+
+  const historyUpdate = (value) => {
+    if (historyItems.includes(value)) {
+      return
+    } else {
+      const addValue = [value, ...historyItems]
+      setHistoryItems(addValue)
+    }
+  }
+
   return (
     <header className="header-gnb">
       <Logo />
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="videoSearch" placeholder="검색" />
-
-        <input type="submit" value="" />
+      <form onSubmit={handleSubmit} className="gnb-form">
+        <input
+          type="text"
+          name="videoSearch"
+          autoComplete="off"
+          placeholder="검색"
+          className="video-search-input"
+          ref={inputRef}
+        />
+        <ul className="search-history">
+          {historyItems.map((item) => {
+            return (
+              <li key={new Date().getTime() + Math.random()}>
+                <button className="history-item">{item}</button>
+              </li>
+            )
+          })}
+        </ul>
+        <input type="submit" value="" className="video-search-btn" />
+        <span className="screen-out">검색</span>
       </form>
       <nav className="gnb">
         <ul className="gnb-tool-list">
@@ -24,22 +63,18 @@ const HeaderGnb = () => {
               className="moblie-btn tool-btn"
             ></button>
             <ToolTip msg="검색" />
-            <span className="screen-out">검색</span>
           </li>
           <li className="tool-item">
             <button type="button" id="alarm" className="tool-btn "></button>
             <ToolTip msg="알림" />
-            <span className="screen-out">알림</span>
           </li>
           <li className="tool-item">
             <button type="button" id="mirror" className="tool-btn "></button>
             <ToolTip msg="미러링" />
-            <span className="screen-out">미러링</span>
           </li>
           <li className="tool-item">
             <button type="button" id="user" className="tool-btn "></button>
             <ToolTip msg="사용자" />
-            <span className="screen-out">사용자</span>
           </li>
         </ul>
       </nav>
