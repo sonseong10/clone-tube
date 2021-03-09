@@ -3,22 +3,23 @@ import Logo from '../ui/logo'
 import ToolTip from '../ui/tooltip'
 import './header.css'
 
-const HeaderGnb = () => {
+const HeaderGnb = ({ onSearch }) => {
   const [historyItems, setHistoryItems] = useState([])
   const inputRef = useRef()
 
   const handleSubmit = (event) => {
-    const value = inputRef.current.value
-    event.preventDefault()
-    if (value) {
-      inputRef.current.blur()
-      handleSearch()
-      historyUpdate(value)
+    if (event.target.tagName === 'BUTTON') {
+      onSearch(event.target.innerText)
+    } else {
+      const value = inputRef.current.value
+      event.preventDefault()
+      if (value) {
+        inputRef.current.value = ''
+        inputRef.current.blur()
+        historyUpdate(value)
+        onSearch(value)
+      }
     }
-  }
-
-  const handleSearch = () => {
-    console.log('Hi')
   }
 
   const historyUpdate = (value) => {
@@ -46,7 +47,9 @@ const HeaderGnb = () => {
           {historyItems.map((item) => {
             return (
               <li key={new Date().getTime() + Math.random()}>
-                <button className="history-item">{item}</button>
+                <button className="history-item" onClick={handleSubmit}>
+                  {item}
+                </button>
               </li>
             )
           })}
