@@ -8,27 +8,27 @@ const HeaderGnb = ({ onSearch }) => {
   const inputRef = useRef()
 
   const handleSubmit = (event) => {
-    if (event.target.tagName === 'BUTTON') {
-      onSearch(event.target.innerText)
-    } else {
-      const value = inputRef.current.value
-      event.preventDefault()
-      if (value) {
-        inputRef.current.value = ''
-        inputRef.current.blur()
-        historyUpdate(value)
-        onSearch(value)
-      }
+    event.preventDefault()
+    const inputValue = inputRef.current.value
+    if (inputValue !== '') {
+      inputRef.current.blur()
+      onSearch(inputValue)
+      historyUpdate(inputValue)
     }
   }
 
-  const historyUpdate = (value) => {
-    if (historyItems.includes(value)) {
-      return
+  const historyUpdate = (inputValue) => {
+    if (historyItems.includes(inputValue)) {
+      return false
     } else {
-      const addValue = [value, ...historyItems]
-      setHistoryItems(addValue)
+      const addHistory = [inputValue, ...historyItems]
+      setHistoryItems(addHistory)
     }
+  }
+
+  const historySerch = (event) => {
+    const historyValue = event.target.value
+    onSearch(historyValue)
   }
 
   return (
@@ -47,7 +47,12 @@ const HeaderGnb = ({ onSearch }) => {
           {historyItems.map((item) => {
             return (
               <li key={new Date().getTime() + Math.random()}>
-                <button className="history-item" onClick={handleSubmit}>
+                <button
+                  type="button"
+                  className="history-item"
+                  value={item}
+                  onClick={historySerch}
+                >
                   {item}
                 </button>
               </li>
