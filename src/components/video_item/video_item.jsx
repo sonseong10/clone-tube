@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './video_item.css'
 
-const VideoItem = ({ video: { snippet } }) => {
+const VideoItem = ({
+  video,
+  video: { snippet },
+  onVideoClick,
+  layout,
+  setToggleLike,
+}) => {
+  const [title, setTitle] = useState('CloneTube')
+  const listLayout = layout === 'column' ? 'column' : ''
+
+  useEffect(() => {
+    document.title = title
+  }, [title])
+
+  const onClickUpdateTitle = () => setTitle(`${snippet.title} | CloneTube`)
+
   return (
-    <li className="list-item">
+    <li
+      className={`list-item ${listLayout}`}
+      onClick={() => {
+        onVideoClick(video)
+        onClickUpdateTitle()
+        setToggleLike('Like')
+      }}
+    >
       <section className="thumbnail">
         <img
           src={snippet.thumbnails.medium.url}

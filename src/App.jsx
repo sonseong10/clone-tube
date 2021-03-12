@@ -6,13 +6,25 @@ import './assets/style/App.css'
 import HeaderGnb from './components/header_gnb/header_gnb'
 import VideoList from './components/video_list/video_list'
 import { useEffect, useState } from 'react'
+import NotFoundContainer from './components/search_error.jsx/not_found_video'
+import VideoContent from './components/video_content/video_content'
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([])
+  const [selectedVideo, setSelectedVideo] = useState(null)
+  const [toggleLike, setToggleLike] = useState('Like')
+
+  const toggleLikeBtn = () => {
+    setToggleLike(toggleLike === 'Like' ? 'Liked' : 'Like')
+  }
+
   const search = (query) => {
     youtube
       .search(query) //
-      .then((videos) => setVideos(videos))
+      .then((videos) => {
+        setVideos(videos)
+        setSelectedVideo(null)
+      })
   }
 
   useEffect(() => {
@@ -21,11 +33,33 @@ function App({ youtube }) {
       .then((videos) => setVideos(videos))
   }, [youtube])
 
+  const selectVideo = (video) => {
+    setSelectedVideo(video)
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+
   return (
     <>
       <HeaderGnb onSearch={search} />
       <main className="container">
-        <VideoList videos={videos} />
+        {selectedVideo && (
+          <VideoContent
+            video={selectedVideo}
+            toggleLike={toggleLike}
+            toggleLikeBtn={toggleLikeBtn}
+          />
+        )}
+        {videos.length === 0 ? (
+          <NotFoundContainer />
+        ) : (
+          <VideoList
+            videos={videos}
+            onVideoClick={selectVideo}
+            layout={selectedVideo ? 'column' : 'row'}
+            setToggleLike={setToggleLike}
+          />
+        )}
       </main>
     </>
   )

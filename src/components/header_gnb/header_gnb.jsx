@@ -5,7 +5,14 @@ import './header.css'
 
 const HeaderGnb = ({ onSearch }) => {
   const [historyItems, setHistoryItems] = useState([])
+  const [mobileBtn, setmobileBtn] = useState('close')
   const inputRef = useRef()
+
+  const handleMobileICon = (event) => {
+    event.target.blur()
+    inputRef.current.focus()
+    setmobileBtn(mobileBtn === 'close' ? 'open' : 'close')
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -14,6 +21,8 @@ const HeaderGnb = ({ onSearch }) => {
       inputRef.current.blur()
       onSearch(inputValue)
       historyUpdate(inputValue)
+    } else {
+      inputRef.current.focus()
     }
   }
 
@@ -34,7 +43,7 @@ const HeaderGnb = ({ onSearch }) => {
   return (
     <header className="header-gnb">
       <Logo />
-      <form onSubmit={handleSubmit} className="gnb-form">
+      <form onSubmit={handleSubmit} className={`gnb-form ${mobileBtn}`}>
         <input
           type="text"
           name="videoSearch"
@@ -69,6 +78,7 @@ const HeaderGnb = ({ onSearch }) => {
               type="button"
               id="search"
               className="moblie-btn tool-btn"
+              onClick={handleMobileICon}
             ></button>
             <ToolTip msg="검색" />
           </li>
