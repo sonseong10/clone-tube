@@ -2,6 +2,7 @@ import './assets/style/reset.css'
 import './assets/style/normalize.css'
 import './assets/style/font.css'
 import './assets/style/App.css'
+import './assets/style/layout.css'
 
 import HeaderGnb from './components/header_gnb/header_gnb'
 import VideoList from './components/video_list/video_list'

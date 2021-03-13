@@ -105,7 +105,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1024px) {
   .container {
     flex-direction: column;
   }
@@ -118,6 +118,7 @@
     padding: 1rem;
     width: 100%;
     height: auto;
+    max-width: none;
     background-color: #fff;
   }
 
@@ -125,11 +126,21 @@
     padding-top: 2em;
   }
 
-  #search {
+  #search.moblie-btn {
     display: block;
   }
 
   header form.close {
     display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container .content {
+    flex: 1 1 76%;
+  }
+
+  .container .video__card-list {
+    flex: 1 1 24%;
   }
 }
