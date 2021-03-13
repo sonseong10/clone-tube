@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './video_item.css'
+const decode = require('unescape')
 
 const VideoItem = ({
   video,
@@ -10,12 +11,13 @@ const VideoItem = ({
 }) => {
   const [title, setTitle] = useState('CloneTube')
   const listLayout = layout === 'column' ? 'column' : ''
+  const finishTitle = decode(snippet.title)
 
   useEffect(() => {
     document.title = title
   }, [title])
 
-  const onClickUpdateTitle = () => setTitle(`${snippet.title} | CloneTube`)
+  const onClickUpdateTitle = () => setTitle(`${finishTitle} | CloneTube`)
 
   return (
     <li
@@ -34,7 +36,7 @@ const VideoItem = ({
         />
       </section>
       <section className="video-info">
-        <h3 className="video-title">{snippet.title}</h3>
+        <h3 className="video-title">{finishTitle}</h3>
         <p className="video-desc">
           {snippet.channelTitle} • Upload Date:{' '}
           {snippet.publishedAt.substr(0, 10)}
