@@ -8,12 +8,61 @@
   background-repeat: no-repeat;
 }
 
+/* controller */
+.control-btn {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 0px 8px #cdcdcd;
+  bottom: 30px;
+  right: 20px;
+  background-image: url('../../assets/images/ctrl-icon.svg');
+  background-repeat: no-repeat;
+}
+
+#darkmode.control-btn.show {
+  transform: translateY(-120px);
+}
+
+#top.control-btn.show {
+  transform: translateY(-60px);
+}
+
+#darkmode {
+  transition: transform 0.4s linear;
+  background-position: left 12px top 12px;
+}
+
+#darkmode:hover {
+  background-position: right 12px top 12px;
+}
+
+#top {
+  transition: transform 0.4s linear;
+  background-position: left 12px bottom -32px;
+}
+
+#top:hover {
+  background-position: right 12px bottom -32px;
+}
+
+#control {
+  background-position: left 12px bottom 12px;
+}
+
+#control:hover {
+  background-position: right 12px bottom 12px;
+}
+
+/* tooltip */
 .tooltip-box {
   position: absolute;
   display: none;
   padding: 6px;
+  min-width: 52px;
   border-radius: 2px;
-  min-width: 100%;
   background-color: #00000077;
   font-size: 14px;
   color: #fdfdfd;
@@ -23,7 +72,6 @@
 .gnb-tool-list .tool-item .tooltip-box {
   left: -5px;
   top: 63px;
-  width: 52px;
 }
 
 #mirror:hover + .tooltip-box,
@@ -35,4 +83,28 @@
 #user:hover + .tooltip-box,
 #user:focus + .tooltip-box {
   display: block;
+}
+
+.snb > .tooltip-box {
+  position: fixed;
+  right: 82px;
+  text-align: center;
+}
+
+#darkmode:hover + .tooltip-box,
+#top:hover + .tooltip-box,
+#control:hover + .tooltip-box {
+  display: block;
+}
+
+#darkmode + .tooltip-box {
+  bottom: 158px;
+}
+
+#top + .tooltip-box {
+  bottom: 100px;
+}
+
+#control + .tooltip-box {
+  bottom: 36px;
 }

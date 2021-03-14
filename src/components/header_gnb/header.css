@@ -119,39 +119,39 @@
   margin-right: 8px;
 }
 
-.tool-btn#search {
-  background-position: 8px -81px;
+#search.tool-btn {
+  background-position: 8px -80px;
 }
 
-.tool-btn#alarm {
+#alarm.tool-btn {
   background-position: 8px -37px;
 }
 
-.tool-btn#mirror {
+#mirror.tool-btn {
   background-position: 8px 8px;
 }
 
-.tool-btn#user {
-  background-position: 8px -125px;
+#user.tool-btn {
+  background-position: 8px -124px;
 }
 
 /* hover and focus*/
-.tool-btn#search:hover,
-.tool-btn#search:focus {
-  background-position: -36px -81px;
+#search.tool-btn:hover,
+#search.tool-btn:focus {
+  background-position: -36px -80px;
 }
 
-.tool-btn#alarm:hover,
-.tool-btn#alarm:focus {
+#alarm.tool-btn:hover,
+#alarm.tool-btn:focus {
   background-position: -36px -37px;
 }
 
-.tool-btn#mirror:hover,
-.tool-btn#mirror:focus {
+#mirror.tool-btn:hover,
+#mirror.tool-btn:focus {
   background-position: -36px 8px;
 }
 
-.tool-btn#user:hover,
-.tool-btn#user:focus {
-  background-position: -36px -125px;
+#user.tool-btn:hover,
+#user.tool-btn:focus {
+  background-position: -36px -124px;
 }
