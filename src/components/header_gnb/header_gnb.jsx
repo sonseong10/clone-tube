@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
 import Logo from '../ui/logo'
 import ToolTip from '../ui/tooltip'
 import './header.css'
 
-const HeaderGnb = ({ onSearch }) => {
+const HeaderGnb = memo(({ onSearch }) => {
   const [historyItems, setHistoryItems] = useState([])
   const [mobileBtn, setmobileBtn] = useState('close')
   const inputRef = useRef()
@@ -98,6 +98,6 @@ const HeaderGnb = ({ onSearch }) => {
       </nav>
     </header>
   )
-}
+})
 
 export default HeaderGnb

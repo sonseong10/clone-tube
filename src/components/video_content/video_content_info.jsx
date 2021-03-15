@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 
-const ContentInfo = (props) => {
+const ContentInfo = memo((props) => {
   const [toggleMore, setToggleMore] = useState('hide')
 
   const toggleMoreBtn = () => {
@@ -24,6 +24,6 @@ const ContentInfo = (props) => {
       </section>
     </>
   )
-}
+})
 
 export default ContentInfo
