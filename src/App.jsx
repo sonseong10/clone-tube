@@ -7,7 +7,7 @@ import './assets/style/dark.css'
 
 import HeaderGnb from './components/header_gnb/header_gnb'
 import VideoList from './components/video_list/video_list'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import NotFoundContainer from './components/search_error.jsx/not_found_video'
 import VideoContent from './components/video_content/video_content'
 import Controller from './components/ui/controller'
@@ -21,14 +21,17 @@ function App({ youtube }) {
     setToggleLike(toggleLike === 'Like' ? 'Liked' : 'Like')
   }
 
-  const search = (query) => {
-    youtube
-      .search(query) //
-      .then((videos) => {
-        setVideos(videos)
-        setSelectedVideo(null)
-      })
-  }
+  const search = useCallback(
+    (query) => {
+      youtube
+        .search(query) //
+        .then((videos) => {
+          setVideos(videos)
+          setSelectedVideo(null)
+        })
+    },
+    [youtube]
+  )
 
   useEffect(() => {
     youtube
@@ -36,9 +39,9 @@ function App({ youtube }) {
       .then((videos) => setVideos(videos))
   }, [youtube])
 
-  const selectVideo = (video) => {
+  const selectVideo = useCallback((video) => {
     setSelectedVideo(video)
-  }
+  }, [])
 
   window.scrollTo({ top: 0, behavior: 'smooth' })
 
