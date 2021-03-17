@@ -73,6 +73,10 @@
   white-space: pre-wrap;
 }
 
+.channel-wrap {
+  margin-bottom: 8px;
+}
+
 .like-btn {
   position: absolute;
   right: 40px;

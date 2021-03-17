@@ -7,7 +7,7 @@ const VideoList = memo(({ videos, onVideoClick, layout, setToggleLike }) => {
     <ul className="video__card-list">
       {videos.map((video) => (
         <VideoItem
-          key={video.id}
+          key={video.etag}
           video={video}
           onVideoClick={onVideoClick}
           layout={layout}

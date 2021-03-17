@@ -11,7 +11,21 @@
 }
 
 .video-info {
+  display: flex;
+  align-items: center;
   padding: 8px 0;
+}
+
+.info-left {
+  margin-right: 8px;
+}
+
+.info-left .channel-logo,
+.channel-wrap .channel-logo {
+  display: block;
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
 }
 
 .video-title {
@@ -75,8 +89,13 @@
 }
 
 .list-item.column .video-info {
+  align-items: flex-start;
   flex-basis: 100%;
   padding: 0;
+}
+
+.list-item.column .video-info .info-left {
+  display: none;
 }
 
 .list-item:hover .thumbnail {

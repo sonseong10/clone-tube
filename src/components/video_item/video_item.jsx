@@ -31,11 +31,20 @@ const VideoItem = memo(
           />
         </section>
         <section className="video-info">
-          <h3 className="video-title">{finishTitle}</h3>
-          <p className="video-desc">
-            {snippet.channelTitle} • Upload Date:{' '}
-            {snippet.publishedAt.substr(0, 10)}
-          </p>
+          <div className="info-left">
+            <img
+              src={snippet.channels}
+              alt="channels img"
+              className="channel-logo"
+            />
+          </div>
+          <div className="info-right">
+            <h3 className="video-title">{finishTitle}</h3>
+            <p className="video-desc">
+              {snippet.channelTitle} • Upload Date:{' '}
+              {snippet.publishedAt.substr(0, 10)}
+            </p>
+          </div>
         </section>
       </li>
     )

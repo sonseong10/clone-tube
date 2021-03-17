@@ -11,10 +11,8 @@ const VideoContent = memo(
       <section className="content">
         <YoutubeIframe videoTitle={finishTitle} videoId={video} />
         <ContentInfo
-          contentTile={finishTitle}
-          contentDesc={snippet.description}
-          uplodeDate={snippet.publishedAt.substr(0, 10)}
-          channelTitle={snippet.channelTitle}
+          video={video}
+          videoTitle={finishTitle}
           toggleLike={toggleLike}
           toggleLikeBtn={toggleLikeBtn}
         />

@@ -1,6 +1,7 @@
 class YoutubeApi {
   constructor(key) {
     this.key = key
+    this.channels = []
     this.getRequestOptions = {
       method: 'GET',
       redirect: 'follow',
@@ -12,8 +13,13 @@ class YoutubeApi {
       `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=24&regionCode=KR&key=${this.key}`,
       this.getRequestOptions
     )
-    const result_1 = await response.json()
-    return result_1.items
+    const result = await response.json()
+    this.channels.splice(0, this.channels.length)
+    result.items.map((item) =>
+      this.channels.push(this.setChannelItem(item.snippet.channelId, item))
+    )
+
+    return Promise.all(this.channels).then((values) => values)
   }
 
   async search(query) {
@@ -21,8 +27,25 @@ class YoutubeApi {
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=24&q=${query}&type=video&key=${this.key}`,
       this.getRequestOptions
     )
-    const result_1 = await response.json()
-    return result_1.items.map((item) => ({ ...item, id: item.id.videoId }))
+    const result = await response.json()
+    this.channels.splice(0, this.channels.length)
+    result.items.map(
+      (item) =>
+        this.channels.push(this.setChannelItem(item.snippet.channelId, item)) //
+    )
+
+    return Promise.all(this.channels).then((values) => values)
+  }
+
+  async setChannelItem(channelId, item) {
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${this.key}`,
+      this.getRequestOption
+    )
+    const result = await response.json()
+    item.snippet.channels = result.items[0].snippet.thumbnails.medium.url
+
+    return Promise.resolve(item)
   }
 }
 
