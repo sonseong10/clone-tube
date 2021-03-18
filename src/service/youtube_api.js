@@ -28,11 +28,14 @@ class YoutubeApi {
       this.getRequestOptions
     )
     const result = await response.json()
+
     this.channels.splice(0, this.channels.length)
-    result.items.map(
-      (item) =>
-        this.channels.push(this.setChannelItem(item.snippet.channelId, item)) //
-    )
+    result.items.map((item) => {
+      const setResult = { ...item, id: item.id.videoId }
+      return this.channels.push(
+        this.setChannelItem(setResult.snippet.channelId, setResult)
+      )
+    })
 
     return Promise.all(this.channels).then((values) => values)
   }
