@@ -134,13 +134,3 @@
     display: none;
   }
 }
-
-@media (min-width: 1400px) {
-  .container .content {
-    flex: 1 1 76%;
-  }
-
-  .container .video__card-list {
-    flex: 1 1 24%;
-  }
-}

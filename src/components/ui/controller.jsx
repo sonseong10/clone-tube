@@ -2,16 +2,11 @@ import React, { useState } from 'react'
 import './ui_style.css'
 import ToolTip from './tooltip'
 
-const Controller = () => {
+const Controller = ({ modes, onModeChange, activeIcon }) => {
   const [showIcon, setShowIcon] = useState('hide')
-  const [activeIcon, setactiveIcon] = useState('unactive')
+
   const hadletoggleBtn = () => {
     setShowIcon(showIcon === 'hide' ? 'show' : 'hide')
-  }
-
-  const handlemodeChange = () => {
-    document.body.classList.toggle('dark')
-    setactiveIcon(activeIcon === 'unactive' ? 'active' : 'unactive')
   }
 
   const handleTop = () => {
@@ -19,11 +14,11 @@ const Controller = () => {
   }
 
   return (
-    <nav className="snb">
+    <nav className={`snb ${modes}`}>
       <button
         id="darkmode"
         className={`control-btn ${showIcon} ${activeIcon}`}
-        onClick={handlemodeChange}
+        onClick={onModeChange}
       ></button>
       <ToolTip msg="다크모드" />
       <button

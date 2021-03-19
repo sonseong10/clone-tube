@@ -2,57 +2,6 @@ body.dark {
   background-color: #181818;
 }
 
-body.dark header {
-  border-bottom: 1px solid #1e1e1e;
-  background-color: #202020;
-}
-
-body.dark .logo {
-  background-image: url('../images/dark_mode_logo.svg');
-}
-
-body.dark header form {
-  background-color: #202020;
-}
-
-body.dark .video-search-input {
-  border: 1px solid #2b2b2b;
-  color: #fefefe;
-}
-
-body.dark .search-history {
-  background-color: #202020;
-  box-shadow: 2px 2px 8px #0c0c0c;
-}
-
-body.dark .history-item {
-  color: #666;
-}
-
-body.dark .history-item:hover {
-  background-color: #181818;
-}
-
-body.dark #search-value {
-  background-color: #121212;
-  border: 1px solid #121212;
-  box-shadow: inset 0 1px 2px #1b1b1b;
-  color: #fefefe;
-}
-
-body.dark .video-search-btn {
-  border: 1px solid #313131;
-  background-color: #313131;
-}
-
-body.dark .video-search-btn:hover,
-body.dark .video-search-btn:focus {
-  background-color: #2f2f2f;
-  background-image: url('../images/dark_mode_icon.svg');
-  background-position: right 20px top -86px;
-  background-size: auto;
-}
-
 body.dark .video-title {
   color: #fefefe;
 }
@@ -87,13 +36,10 @@ body.dark .control-btn {
   box-shadow: 0px 0px 8px #0c0c0c;
 }
 
-body.dark .control-btn:hover {
+body.dark .control-btn:hover,
+body.dark #darkmode.active {
   background-image: url('../images/dark_mode_icon.svg');
   background-repeat: no-repeat;
-}
-
-body.dark .tool-btn:hover {
-  background-image: url('../images/dark_mode_icon.svg');
 }
 
 body.dark #control:hover {
@@ -105,8 +51,6 @@ body.dark #top:hover {
 }
 
 body.dark #darkmode.active {
-  background-image: url('../images/dark_mode_icon.svg');
-  background-repeat: no-repeat;
   background-position: left 12px top -164px;
 }
 
@@ -116,23 +60,4 @@ body.dark .content-info {
 
 body.dark #darkmode.control-btn.show {
   transform: translateY(-120px);
-}
-
-body.dark #search:hover {
-  background-position: 8px -80px;
-}
-
-body.dark .tool-btn#alarm:hover,
-body.dark .tool-btn#alarm:focus {
-  background-position: 8px -37px;
-}
-
-body.dark .tool-btn#mirror:hover,
-body.dark .tool-btn#mirror:focus {
-  background-position: 8px 8px;
-}
-
-body.dark #user:hover,
-body.dark #user:focus {
-  background-position: 8px -124px;
 }

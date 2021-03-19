@@ -15,10 +15,18 @@ import Controller from './components/ui/controller'
 function App({ youtube }) {
   const [videos, setVideos] = useState([])
   const [selectedVideo, setSelectedVideo] = useState(null)
+  const [modes, setModes] = useState('light')
+  const [activeIcon, setActiveIcon] = useState('unactive')
   const [toggleLike, setToggleLike] = useState('Like')
 
   const toggleLikeBtn = () => {
     setToggleLike(toggleLike === 'Like' ? 'Liked' : 'Like')
+  }
+
+  const handleModeChange = () => {
+    document.body.classList.toggle('dark')
+    setModes(modes === 'light' ? 'dark' : 'light')
+    setActiveIcon(activeIcon === 'unactive' ? 'active' : 'unactive')
   }
 
   const search = useCallback(
@@ -47,27 +55,33 @@ function App({ youtube }) {
 
   return (
     <>
-      <HeaderGnb onSearch={search} />
+      <HeaderGnb onSearch={search} modes={modes} />
       <main className="container">
         {selectedVideo && (
           <VideoContent
             video={selectedVideo}
             toggleLike={toggleLike}
             toggleLikeBtn={toggleLikeBtn}
+            modes={modes}
           />
         )}
         {videos.length === 0 ? (
-          <NotFoundContainer />
+          <NotFoundContainer modes={modes} />
         ) : (
           <VideoList
             videos={videos}
             onVideoClick={selectVideo}
             layout={selectedVideo ? 'column' : 'row'}
             setToggleLike={setToggleLike}
+            modes={modes}
           />
         )}
       </main>
-      <Controller />
+      <Controller
+        onModeChange={handleModeChange}
+        activeIcon={activeIcon}
+        modes={modes}
+      />
     </>
   )
 }
