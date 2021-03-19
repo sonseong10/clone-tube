@@ -1,14 +1,15 @@
 import React from 'react'
-import './search_error.css'
+import styles from './search_error.module.css'
 
-const NotFoundContainer = () => {
+const NotFoundContainer = ({ modes }) => {
+  const modeType = modes === 'light' ? styles.light : styles.dark
   return (
-    <section className="wrapper">
-      <div className="img-wrap">
-        <div className="no_found-img"></div>
+    <section className={`${styles.wrapper} ${modeType}`}>
+      <div className={styles.imgContainer}>
+        <div className={styles.img}></div>
       </div>
-      <h3 className="search-Title">검색결과가 없습니다.</h3>
-      <p className="search-desc">다른 검색어를 시도해 주세요.</p>
+      <h3 className={styles.title}>검색결과가 없습니다.</h3>
+      <p className={styles.desc}>다른 검색어를 시도해 주세요.</p>
     </section>
   )
 }
