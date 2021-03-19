@@ -43,15 +43,6 @@
   color: #666;
 }
 
-.moblie-footerbar {
-  position: fixed;
-  bottom: 0;
-  height: 60px;
-  background-color: #fff;
-  width: 100%;
-  border-top: 1px solid #f1f1f1;
-}
-
 .thumbnail {
   position: relative;
   overflow: hidden;
