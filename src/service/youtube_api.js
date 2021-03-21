@@ -40,7 +40,6 @@ class YoutubeApi {
         id: item.id.videoId,
         title: decode(item.snippet.title),
       }
-      console.log(setResult)
       return this.channels.push(
         this.setChannelItem(setResult.snippet.channelId, setResult)
       )
