@@ -1,11 +1,9 @@
 import React, { memo, useState } from 'react'
 import YoutubeIframe from './youtube_iframe'
 import styles from './video_content.module.css'
-const decode = require('unescape')
 
 const VideoContent = memo(
   ({ video, video: { snippet }, toggleLike, toggleLikeBtn, modes }) => {
-    const finishTitle = decode(snippet.title)
     const [toggleType, setToggleType] = useState(styles.hide)
     const modeType = modes === 'light' ? styles.light : styles.dark
     const handleToggle = () =>
@@ -13,9 +11,9 @@ const VideoContent = memo(
 
     return (
       <section className={`${styles.content} ${modeType}`}>
-        <YoutubeIframe videoTitle={finishTitle} videoId={video} />
+        <YoutubeIframe videoTitle={video.title} videoId={video} />
         <section className={styles.intro}>
-          <h1 className={styles.title}>{finishTitle}</h1>
+          <h1 className={styles.title}>{video.title}</h1>
           <p className={styles.date}>
             {`Upload Date: ${snippet.publishedAt.substr(0, 10)}`}
           </p>

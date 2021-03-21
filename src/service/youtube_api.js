@@ -1,3 +1,5 @@
+const decode = require('unescape')
+
 class YoutubeApi {
   constructor(key) {
     this.key = key
@@ -15,9 +17,12 @@ class YoutubeApi {
     )
     const result = await response.json()
     this.channels.splice(0, this.channels.length)
-    result.items.map((item) =>
-      this.channels.push(this.setChannelItem(item.snippet.channelId, item))
-    )
+    result.items.map((item) => {
+      const setResult = { ...item, title: decode(item.snippet.title) }
+      return this.channels.push(
+        this.setChannelItem(setResult.snippet.channelId, setResult)
+      )
+    })
 
     return Promise.all(this.channels).then((values) => values)
   }
@@ -28,10 +33,14 @@ class YoutubeApi {
       this.getRequestOptions
     )
     const result = await response.json()
-
     this.channels.splice(0, this.channels.length)
     result.items.map((item) => {
-      const setResult = { ...item, id: item.id.videoId }
+      const setResult = {
+        ...item,
+        id: item.id.videoId,
+        title: decode(item.snippet.title),
+      }
+      console.log(setResult)
       return this.channels.push(
         this.setChannelItem(setResult.snippet.channelId, setResult)
       )
