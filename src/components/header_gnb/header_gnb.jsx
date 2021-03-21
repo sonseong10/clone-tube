@@ -1,11 +1,10 @@
 import React, { memo, useRef, useState } from 'react'
 import Logo from '../ui/logo'
-import ToolTip from '../ui/tooltip'
 import styles from './header.module.css'
 
 const HeaderGnb = memo(({ onSearch, modes }) => {
   const [historyItems, setHistoryItems] = useState([])
-  const [mobileBtn, setmobileBtn] = useState('close')
+  const [mobileBtn, setmobileBtn] = useState(styles.close)
   const inputRef = useRef()
 
   const modeType = modes === 'light' ? styles.light : styles.dark
@@ -13,7 +12,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
   const handleMobileICon = (event) => {
     event.target.blur()
     inputRef.current.focus()
-    setmobileBtn(mobileBtn === 'close' ? 'open' : 'close')
+    setmobileBtn(mobileBtn === styles.close ? styles.open : styles.close)
   }
 
   const handleSubmit = (event) => {
@@ -44,7 +43,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
 
   return (
     <header className={`${styles.gnb} ${modeType}`}>
-      <Logo modes={modeType} />
+      <Logo modes={modes} />
       <form onSubmit={handleSubmit} className={`${styles.form} ${mobileBtn}`}>
         <input
           type="text"
@@ -81,28 +80,36 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
               className={`${styles.moblieBtn} ${styles.toolBtn} ${styles.search}`}
               onClick={handleMobileICon}
             ></button>
-            <ToolTip msg="검색" />
+            <div className={styles.tooltipBox}>
+              <span>검색</span>
+            </div>
           </li>
           <li className={styles.toolItem}>
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.alarm}`}
             ></button>
-            <ToolTip msg="알림" />
+            <div className={styles.tooltipBox}>
+              <span>알림</span>
+            </div>
           </li>
           <li className={styles.toolItem}>
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.mirror}`}
             ></button>
-            <ToolTip msg="미러링" />
+            <div className={styles.tooltipBox}>
+              <span>미러링</span>
+            </div>
           </li>
           <li className={styles.toolItem}>
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.user}`}
             ></button>
-            <ToolTip msg="사용자" />
+            <div className={styles.tooltipBox}>
+              <span>사용자</span>
+            </div>
           </li>
         </ul>
       </nav>

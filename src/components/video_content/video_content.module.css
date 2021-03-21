@@ -1,0 +1,130 @@
+.content {
+  min-width: 70%;
+  padding: 80px 1.6em 0;
+}
+
+.video {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.iframeWrap {
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.intro,
+.info {
+  position: relative;
+  padding: 2em 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 0.6em 0;
+  overflow: hidden;
+}
+
+.date {
+  font-size: 14px;
+  color: #666;
+}
+
+.likeBtn {
+  position: absolute;
+  right: 40px;
+  bottom: 0px;
+  padding: 0.6em 1em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #e4e4e4;
+  font-size: 14px;
+  color: #666;
+}
+
+.likeBtn:hover {
+  background-color: #d2d2d2;
+  color: #1d1d1d;
+}
+
+.imgWrap {
+  margin-bottom: 8px;
+}
+
+.channelLogo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-bottom: 0.6em;
+}
+
+.moreBtn {
+  margin-bottom: 0.6em;
+  font-size: 14px;
+  color: #666;
+}
+
+.moreBtn:hover {
+  color: #1d1d1d;
+}
+
+.videoDesc {
+  font-size: 1.4rem;
+  color: #666;
+  white-space: pre-wrap;
+}
+
+.videoDesc.show {
+  max-height: auto;
+}
+
+.videoDesc.hide {
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* darkmode */
+
+.content.dark .intro,
+.content.dark .info {
+  border-color: #1d1d1d;
+}
+
+.content.dark .title {
+  color: #fcfcfc;
+}
+
+.content.dark .name {
+  color: #fcfcfc;
+}
+
+.content.dark .likeBtn {
+  background-color: #212121;
+  color: #666;
+}
+
+.content.dark .likeBtn:hover {
+  background-color: #353535;
+}
+
+.content.dark .moreBtn:hover {
+  color: #fefefe;
+}

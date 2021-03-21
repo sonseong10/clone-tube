@@ -2,62 +2,6 @@ body.dark {
   background-color: #181818;
 }
 
-body.dark .video-title {
-  color: #fefefe;
-}
-
-body.dark .content-channel {
-  color: #fefefe;
-}
-
-body.dark .more-btn:hover {
-  color: #fefefe;
-}
-
-body.dark .like-btn {
-  background-color: #212121;
-  color: #666;
-}
-
-body.dark .like-btn:hover {
-  background-color: #353535;
-}
-
-body.dark .content-desc {
-  color: #666;
-}
-
-body.dark .content-title {
-  color: #fdfdfd;
-}
-
-body.dark .control-btn {
-  background-color: #0c0c0c;
-  box-shadow: 0px 0px 8px #0c0c0c;
-}
-
-body.dark .control-btn:hover,
-body.dark #darkmode.active {
-  background-image: url('../images/dark_mode_icon.svg');
-  background-repeat: no-repeat;
-}
-
-body.dark #control:hover {
-  background-position: left 12px bottom 12px;
-}
-
-body.dark #top:hover {
-  background-position: left 12px bottom -32px;
-}
-
-body.dark #darkmode.active {
-  background-position: left 12px top -164px;
-}
-
-body.dark .content-info {
-  border-bottom: 1px solid #262626;
-}
-
-body.dark #darkmode.control-btn.show {
-  transform: translateY(-120px);
+body.dark::-webkit-scrollbar-track {
+  background-color: #181818;
 }

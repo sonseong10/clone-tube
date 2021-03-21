@@ -2,7 +2,7 @@ import './assets/style/reset.module.css'
 import './assets/style/normalize.module.css'
 import './assets/style/font.module.css'
 import './assets/style/App.css'
-import './assets/style/layout.module.css'
+import styles from './assets/style/layout.module.css'
 import './assets/style/dark.css'
 
 import { useCallback, useEffect, useState } from 'react'
@@ -16,17 +16,19 @@ function App({ youtube }) {
   const [videos, setVideos] = useState([])
   const [selectedVideo, setSelectedVideo] = useState(null)
   const [modes, setModes] = useState('light')
-  const [activeIcon, setActiveIcon] = useState('unactive')
+  const [activeIcon, setActiveIcon] = useState('inactive')
   const [toggleLike, setToggleLike] = useState('Like')
 
   const toggleLikeBtn = () => {
     setToggleLike(toggleLike === 'Like' ? 'Liked' : 'Like')
   }
 
-  const handleModeChange = () => {
+  const handleModeChange = (event) => {
+    event.preventDefault()
     document.body.classList.toggle('dark')
     setModes(modes === 'light' ? 'dark' : 'light')
-    setActiveIcon(activeIcon === 'unactive' ? 'active' : 'unactive')
+    setActiveIcon(activeIcon === 'inactive' ? 'active' : 'inactive')
+    event.target.blur()
   }
 
   const search = useCallback(
@@ -48,15 +50,14 @@ function App({ youtube }) {
   }, [youtube])
 
   const selectVideo = useCallback((video) => {
+    window.scrollTo({ top: 0 })
     setSelectedVideo(video)
   }, [])
-
-  window.scrollTo({ top: 0 })
 
   return (
     <>
       <HeaderGnb onSearch={search} modes={modes} />
-      <main className="container">
+      <main className={styles.container}>
         {selectedVideo && (
           <VideoContent
             video={selectedVideo}

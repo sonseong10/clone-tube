@@ -1,11 +1,12 @@
 import React from 'react'
-import './ui_style.css'
+import styles from './ui_style.module.css'
 
-const Logo = () => {
+const Logo = ({ modes }) => {
+  const modeType = modes === 'light' ? styles.light : styles.dark
   return (
     <a href="/">
-      <span className="logo"></span>
-      <strong className="screen-out">CloneTube</strong>
+      <span className={`${styles.logo} ${modeType}`}></span>
+      <strong className={styles.screenOut}>CloneTube</strong>
     </a>
   )
 }

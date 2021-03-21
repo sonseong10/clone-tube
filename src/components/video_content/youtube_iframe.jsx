@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from './video_content.module.css'
 
 const YoutubeIframe = (props) => {
   return (
-    <div className="iframe-wrap">
-      <div>
+    <article className={styles.video}>
+      <div className={styles.iframeWrap}>
         <iframe
           type="text/html"
           title={props.videoTitle}
@@ -13,9 +14,10 @@ const YoutubeIframe = (props) => {
           frameBorder="0"
           allow="autoplay; encrypted-media"
           allowFullScreen
+          className={styles.iframe}
         ></iframe>
       </div>
-    </div>
+    </article>
   )
 }
 

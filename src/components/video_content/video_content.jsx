@@ -1,41 +1,45 @@
 import React, { memo, useState } from 'react'
 import YoutubeIframe from './youtube_iframe'
-import './video_content.css'
+import styles from './video_content.module.css'
 const decode = require('unescape')
 
 const VideoContent = memo(
-  ({ video, video: { snippet }, toggleLike, toggleLikeBtn }) => {
+  ({ video, video: { snippet }, toggleLike, toggleLikeBtn, modes }) => {
     const finishTitle = decode(snippet.title)
-    const [toggleMore, setToggleMore] = useState('hide')
-
-    const toggleMoreBtn = () =>
-      setToggleMore(toggleMore === 'hide' ? 'show' : 'hide')
+    const [toggleType, setToggleType] = useState(styles.hide)
+    const modeType = modes === 'light' ? styles.light : styles.dark
+    const handleToggle = () =>
+      setToggleType(toggleType === styles.hide ? styles.show : styles.hide)
 
     return (
-      <section className="content">
+      <section className={`${styles.content} ${modeType}`}>
         <YoutubeIframe videoTitle={finishTitle} videoId={video} />
-        <section className="content-info">
-          <h1 className="content-title">{finishTitle}</h1>
-          <p className="content-date">
+        <section className={styles.intro}>
+          <h1 className={styles.title}>{finishTitle}</h1>
+          <p className={styles.date}>
             {`Upload Date: ${snippet.publishedAt.substr(0, 10)}`}
           </p>
-          <button className="like-btn" onClick={toggleLikeBtn}>
+          <button className={styles.likeBtn} onClick={toggleLikeBtn}>
             {toggleLike}
           </button>
         </section>
-        <section className="content-info">
-          <div className="channel-wrap">
+        <section className={styles.info}>
+          <div className={styles.imgWrap}>
             <img
               src={snippet.channels}
-              alt="channels img"
-              className="channel-logo"
+              alt="Channel Thumbnail"
+              className={styles.channelLogo}
             />
           </div>
-          <h3 className="content-channel">{snippet.channelTitle}</h3>
-          <button type="button" className="more-btn" onClick={toggleMoreBtn}>
+          <h3 className={styles.name}>{snippet.channelTitle}</h3>
+          <button
+            type="button"
+            className={styles.moreBtn}
+            onClick={handleToggle}
+          >
             더보기
           </button>
-          <pre className={`content-desc ${toggleMore}`}>
+          <pre className={`${styles.videoDesc} ${toggleType}`}>
             {snippet.description}
           </pre>
         </section>
