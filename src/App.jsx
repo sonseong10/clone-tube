@@ -1,9 +1,7 @@
 import './assets/style/reset.css'
 import './assets/style/normalize.css'
 import './assets/style/font.css'
-import './assets/style/App.css'
 import styles from './assets/style/layout.module.css'
-import './assets/style/dark.css'
 
 import { useCallback, useEffect, useState } from 'react'
 import HeaderGnb from './components/header_gnb/header_gnb'
