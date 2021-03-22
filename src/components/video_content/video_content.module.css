@@ -1,6 +1,6 @@
 .content {
   min-width: 70%;
-  padding: 80px 1.6em 0;
+  padding: 8em 1.6em 0;
 }
 
 .video {
@@ -44,13 +44,13 @@
 
 .likeBtn {
   position: absolute;
-  right: 40px;
-  bottom: 0px;
+  right: 4em;
+  bottom: 0;
   padding: 0.6em 1em;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background-color: #e4e4e4;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #666;
 }
 
@@ -60,13 +60,13 @@
 }
 
 .imgWrap {
-  margin-bottom: 8px;
+  margin-bottom: 0.6em;
 }
 
 .channelLogo {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 4em;
+  height: 4em;
   border-radius: 50%;
 }
 
@@ -78,7 +78,7 @@
 
 .moreBtn {
   margin-bottom: 0.6em;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #666;
 }
 

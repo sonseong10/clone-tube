@@ -3,7 +3,7 @@
   justify-content: center;
   flex-wrap: wrap;
   min-width: 100%;
-  padding: 80px 0 0;
+  padding: 8em 0 0;
 }
 
 .list.column {
@@ -16,6 +16,6 @@
   }
 
   .list.column {
-    padding: 30px 0;
+    padding: 3em 0;
   }
 }

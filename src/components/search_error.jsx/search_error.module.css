@@ -24,11 +24,11 @@
 .title {
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.4em;
 }
 
 .desc {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #666;
 }
 
