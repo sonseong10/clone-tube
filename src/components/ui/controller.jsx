@@ -6,14 +6,13 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
   const modeType = modes === 'light' ? styles.light : styles.dark
   const activeType = activeIcon === 'active' ? styles.active : 'inactive'
 
-  const hadletoggleBtn = (e) => {
+  const hadletoggleBtn = () => {
     setShowIcon(showIcon === styles.hide ? styles.show : styles.hide)
-    e.target.blur()
   }
 
-  const handleMoveTop = (e) => {
+  const handleMoveTop = () => {
     window.scrollTo({ top: 0 })
-    e.target.blur()
+    hadletoggleBtn()
   }
 
   return (
@@ -21,6 +20,7 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
       <button
         className={`${styles.controlBtn} ${styles.darkmode} ${showIcon} ${activeType}`}
         onClick={onModeChange}
+        onBlur={hadletoggleBtn}
       ></button>
       <div className={styles.tooltipBox}>
         <span>다크모드</span>
