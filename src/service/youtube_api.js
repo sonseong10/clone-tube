@@ -1,23 +1,23 @@
 const decode = require('unescape')
 
 class YoutubeApi {
-  constructor(key) {
-    this.key = key
+  constructor(httpURL) {
+    this.youtubeAPI = httpURL
     this.channels = []
-    this.getRequestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    }
   }
 
   async mostPopular() {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=24&regionCode=KR&key=${this.key}`,
-      this.getRequestOptions
-    )
-    const result = await response.json()
+    const response = await this.youtubeAPI.get('videos', {
+      params: {
+        part: 'snippet',
+        chart: 'mostPopular',
+        maxResults: '24',
+        regionCode: 'KR',
+      },
+    })
+
     this.channels.splice(0, this.channels.length)
-    result.items.map((item) => {
+    response.data.items.map((item) => {
       const setResult = { ...item, title: decode(item.snippet.title) }
       return this.channels.push(
         this.setChannelItem(setResult.snippet.channelId, setResult)
@@ -28,13 +28,17 @@ class YoutubeApi {
   }
 
   async search(query) {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=24&q=${query}&type=video&key=${this.key}`,
-      this.getRequestOptions
-    )
-    const result = await response.json()
+    const response = await this.youtubeAPI.get('search', {
+      params: {
+        part: 'snippet',
+        q: query,
+        maxResults: '24',
+        type: 'video',
+      },
+    })
+
     this.channels.splice(0, this.channels.length)
-    result.items.map((item) => {
+    response.data.items.map((item) => {
       const setResult = {
         ...item,
         id: item.id.videoId,
@@ -49,13 +53,13 @@ class YoutubeApi {
   }
 
   async setChannelItem(channelId, item) {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${this.key}`,
-      this.getRequestOption
-    )
-    const result = await response.json()
-    item.snippet.channels = result.items[0].snippet.thumbnails.medium.url
-
+    const response = await this.youtubeAPI.get('channels', {
+      params: {
+        part: 'snippet',
+        id: channelId,
+      },
+    })
+    item.snippet.channels = response.data.items[0].snippet.thumbnails.medium.url
     return Promise.resolve(item)
   }
 }
