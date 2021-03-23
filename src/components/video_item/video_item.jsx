@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react'
-import styles from './video_item.module.css'
+import styles from '../../assets/style/video_item.module.css'
 
 const VideoItem = memo(
   ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './video_content.module.css'
+import styles from '../../assets/style/video_content.module.css'
 
 const YoutubeIframe = (props) => {
   return (

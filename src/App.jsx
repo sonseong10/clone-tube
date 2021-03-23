@@ -1,6 +1,6 @@
-import './assets/style/reset.css'
-import './assets/style/normalize.css'
-import './assets/style/font.css'
+import './assets/common/reset.css'
+import './assets/common/normalize.css'
+import './assets/common/font.css'
 import styles from './assets/style/layout.module.css'
 
 import { useCallback, useEffect, useState } from 'react'
@@ -22,7 +22,6 @@ function App({ youtube }) {
   }
 
   const handleModeChange = (event) => {
-    event.preventDefault()
     document.body.classList.toggle('dark')
     setModes(modes === 'light' ? 'dark' : 'light')
     setActiveIcon(activeIcon === 'inactive' ? 'active' : 'inactive')

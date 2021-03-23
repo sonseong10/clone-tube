@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './ui_style.module.css'
+import styles from '../../assets/style/ui_style.module.css'
 
 const Logo = ({ modes }) => {
   const modeType = modes === 'light' ? styles.light : styles.dark

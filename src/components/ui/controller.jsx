@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './ui_style.module.css'
+import styles from '../../assets/style/ui_style.module.css'
 
 const Controller = ({ modes, onModeChange, activeIcon }) => {
   const [showIcon, setShowIcon] = useState(styles.hide)

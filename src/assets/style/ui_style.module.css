@@ -1,3 +1,9 @@
+@value color: '../../assets/common/color.css';
+@value font: '../../assets/common/font.css';
+
+@value orginWhite, middleWhite, brightGray, orgingGray, middleBlack, opacityBlack from color;
+@value baseFont from font;
+
 .screenOut {
   position: absolute;
   left: -1000px;
@@ -27,11 +33,11 @@
 /* controller */
 .controlBtn {
   position: fixed;
-  width: 4.8em;
-  height: 4.8em;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0px 0px 8px #cdcdcd;
+  background-color: orginWhite;
+  box-shadow: 0px 0px 8px brightGray;
   bottom: 30px;
   right: 20px;
   background-image: url('../../assets/images/ctrl-icon.svg');
@@ -76,8 +82,8 @@
 /* controller dark */
 
 .snb.dark .controlBtn {
-  background-color: #0c0c0c;
-  box-shadow: 0px 0px 8px #0c0c0c;
+  background-color: middleBlack;
+  box-shadow: 0px 0px 8px opacityBlack;
 }
 
 .snb.dark .controlBtn:hover,
@@ -102,12 +108,12 @@
 .tooltipBox {
   position: absolute;
   display: none;
-  padding: 6px;
-  min-width: 52px;
+  padding: 0.4em;
+  min-width: 3.6em;
   border-radius: 2px;
-  background-color: #00000077;
-  font-size: 14px;
-  color: #fdfdfd;
+  background-color: opacityBlack;
+  font-size: baseFont;
+  color: middleWhite;
   text-align: center;
 }
 
@@ -124,7 +130,7 @@
 }
 
 .darkmode + .tooltipBox {
-  bottom: 158px;
+  bottom: 162px;
 }
 
 .top + .tooltipBox {

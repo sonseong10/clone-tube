@@ -1,13 +1,21 @@
+@value layout: '../../assets/common/break_point.css';
+@value color: '../../assets/common/color.css';
+@value font: '../../assets/common/font.css';
+
+@value mediaLarge from layout;
+@value orginWhite, middleWhite, darkWhite, brightGray, orgingGray, middleGray, brightBlack, middleBlack, orgingBlack, opacityBlack from color;
+@value baseFont from font;
+
 .gnb {
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1.4em;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid darkWhite;
   width: 100vw;
   height: 6em;
-  background-color: #fff;
+  background-color: orginWhite;
   z-index: 10;
 }
 
@@ -29,11 +37,11 @@
 .searchInput {
   flex-grow: 20;
   padding: 0.4em 0.6em;
-  border: 1px solid #eeee;
+  border: 1px solid brightGray;
   border-radius: 2px 0 0 0.2em;
   border-right: none;
-  color: #1d1d1d;
-  font-size: 1.4rem;
+  color: brightBlack;
+  font-size: baseFont;
 }
 
 .searchInput:focus + .history {
@@ -50,8 +58,8 @@
   max-height: 0;
   overflow: auto;
   border-radius: 0.6em;
-  background-color: #fff;
-  box-shadow: 2px 2px 8px #666;
+  background-color: orginWhite;
+  box-shadow: 2px 2px 8px brightGray;
   transition: all 0.4s;
 }
 
@@ -61,34 +69,34 @@
 }
 
 .historyItem {
-  padding: 1em;
+  padding: 0.4em;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: baseFont;
   text-align: left;
   word-break: break-all;
 }
 
 .historyItem:hover {
-  background-color: #f5f5f5;
+  background-color: darkWhite;
 }
 
 .submitBtn {
   cursor: pointer;
-  border: 1px solid #ededed;
+  border: 1px solid brightGray;
   border-radius: 0 2px 2px 0;
-  width: 6.5em;
-  height: 3.2em;
+  width: 6.6em;
+  height: 3em;
   background-image: url('../../assets/images/header_icon_split.svg');
   background-repeat: no-repeat;
-  background-position: 21px -78px;
+  background-position: 2.2em -8em;
   background-size: cover;
-  background-color: #f8f8f8;
+  background-color: middleWhite;
 }
 
 .submitBtn:hover,
 .submitBtn:focus {
-  background-color: #f3f3f3;
-  background-position: -19px -78px;
+  background-color: darkWhite;
+  background-position: -2em -8em;
 }
 
 /* navigation */
@@ -103,9 +111,9 @@
 /* tool-btn */
 .toolBtn {
   line-height: 1;
-  padding: 8px;
-  width: 4em;
-  height: 4em;
+  padding: 0.4em;
+  width: 40px;
+  height: 40px;
   background-image: url('../../assets/images/header_icon_split.svg');
   background-repeat: no-repeat;
 }
@@ -158,43 +166,48 @@
 /* darkmode */
 
 .gnb.dark {
-  border-bottom: 1px solid #1e1e1e;
-  background-color: #202020;
+  border-bottom: 1px solid brightBlack;
+  background-color: brightBlack;
 }
 
 .gnb.dark .searchInput {
-  border: 1px solid #2b2b2b;
-  color: #fefefe;
+  border: 1px solid middleGray;
+  color: middleWhite;
 }
 
 .gnb.dark .history {
-  background-color: #202020;
-  box-shadow: 2px 2px 8px #0c0c0c;
+  background-color: middleBlack;
+  box-shadow: 2px 2px 8px orgingBlack;
 }
 
 .gnb.dark .historyItem {
-  color: #666;
+  color: orgingGray;
 }
 
 .gnb.dark .historyItem:hover {
-  background-color: #181818;
+  background-color: brightBlack;
 }
 
 .gnb.dark .form {
-  background-color: #202020;
+  background-color: brightBlack;
 }
 
 .gnb.dark .submitBtn {
-  border: 1px solid #313131;
-  background-color: #313131;
+  border: 1px solid middleGray;
+  background-color: middleGray;
 }
 
 .gnb.dark .submitBtn:hover,
 .gnb.dark .submitBtn:focus {
-  background-color: #2f2f2f;
+  background-color: middleGray;
   background-image: url('../../assets/images/dark_mode_icon.svg');
   background-position: right 20px top -86px;
   background-size: auto;
+}
+
+.gnb.dark .toolBtn:hover,
+.gnb.dark .toolBtn:focus {
+  background-image: url('../../assets/images/dark_mode_icon.svg');
 }
 
 .gnb.dark .alarm:hover,
@@ -212,11 +225,8 @@
   background-position: 8px -124px;
 }
 
-.gnb.dark .toolBtn:hover {
-  background-image: url('../../assets/images/dark_mode_icon.svg');
-}
-
-.gnb.dark .search:hover {
+.gnb.dark .search:hover,
+.gnb.dark .search:focus {
   background-position: 8px -80px;
 }
 
@@ -236,12 +246,12 @@
   left: -6px;
   top: 62px;
   display: none;
-  padding: 0.2em;
+  padding: 0.4em;
   min-width: 3.6em;
   border-radius: 2px;
-  background-color: #00000077;
-  font-size: 1.4rem;
-  color: #fdfdfd;
+  background-color: opacityBlack;
+  font-size: baseFont;
+  color: middleWhite;
   text-align: center;
 }
 
@@ -256,17 +266,17 @@
   display: block;
 }
 
-@media screen and (max-width: 1024px) {
+@media mediaLarge {
   .form {
     position: fixed;
     left: 0;
-    top: 50px;
+    top: 5em;
     margin-left: 0;
     padding: 1em 2em;
     width: 100vw;
     height: auto;
     max-width: none;
-    background-color: #fff;
+    background-color: orginWhite;
   }
 
   .history {

@@ -1,3 +1,9 @@
+@value color: '../../assets/common/color.css';
+@value font: '../../assets/common/font.css';
+
+@value orgingGray, middleWhite  from color;
+@value baseFont, lageFont from font;
+
 .wrapper {
   display: flex;
   width: 100%;
@@ -5,7 +11,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.4rem;
 }
 
 .imgContainer {
@@ -22,17 +27,17 @@
 }
 
 .title {
-  font-size: 24px;
+  font-size: lageFont;
   font-weight: 400;
   margin-bottom: 0.4em;
 }
 
 .desc {
-  font-size: 1.4rem;
-  color: #666;
+  font-size: baseFont;
+  color: orgingGray;
 }
 
 /* darkmode */
 .wrapper.dark .title {
-  color: #fdfdfd;
+  color: middleWhite;
 }

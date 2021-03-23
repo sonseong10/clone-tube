@@ -1,34 +1,38 @@
+@value layout: '../common/break_point.css';
+
+@value mediaMicro, mediaSmall, mediaMiddle, mediaLarge, mediaXL from layout;
+
 .container {
   display: flex;
   margin: 0 auto;
   height: 100%;
 }
 
-@media (min-width: 36em) {
+@media mediaMicro {
   .container {
     max-width: 100%;
   }
 }
 
-@media (min-width: 48em) {
+@media mediaSmall {
   .container {
     max-width: 76em;
   }
 }
 
-@media (min-width: 62em) {
+@media mediaMiddle {
   .container {
     max-width: 106em;
   }
 }
 
-@media (max-width: 64em) {
+@media mediaLarge {
   .container {
     flex-direction: column;
   }
 }
 
-@media (min-width: 75em) {
+@media mediaXL {
   .container {
     max-width: 160em;
   }

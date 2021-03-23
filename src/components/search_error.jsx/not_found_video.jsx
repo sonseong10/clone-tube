@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './search_error.module.css'
+import styles from '../../assets/style/search_error.module.css'
 
 const NotFoundContainer = ({ modes }) => {
   const modeType = modes === 'light' ? styles.light : styles.dark

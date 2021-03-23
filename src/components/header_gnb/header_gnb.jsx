@@ -1,6 +1,6 @@
 import React, { memo, useRef, useState } from 'react'
 import Logo from '../ui/logo'
-import styles from './header.module.css'
+import styles from '../../assets/style/header.module.css'
 
 const HeaderGnb = memo(({ onSearch, modes }) => {
   const [historyItems, setHistoryItems] = useState([])

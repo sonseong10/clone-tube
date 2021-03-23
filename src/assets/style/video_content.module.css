@@ -1,3 +1,9 @@
+@value color: '../../assets/common/color.css';
+@value font: '../../assets/common/font.css';
+
+@value middleWhite, darkWhite, brightGray, orgingGray, middleGray, brightBlack, middleBlack from color;
+@value baseFont, midFont from font;
+
 .content {
   min-width: 70%;
   padding: 8em 1.6em 0;
@@ -27,19 +33,19 @@
 .info {
   position: relative;
   padding: 2em 0;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid brightGray;
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: middleRem;
   font-weight: 400;
   padding: 0.6em 0;
   overflow: hidden;
 }
 
 .date {
-  font-size: 14px;
-  color: #666;
+  font-size: baseFont;
+  color: orgingGray;
 }
 
 .likeBtn {
@@ -47,16 +53,12 @@
   right: 4em;
   bottom: 0;
   padding: 0.6em 1em;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  background-color: #e4e4e4;
-  font-size: 1.4rem;
-  color: #666;
+  font-size: baseFont;
+  color: orgingGray;
 }
 
 .likeBtn:hover {
-  background-color: #d2d2d2;
-  color: #1d1d1d;
+  color: brightBlack;
 }
 
 .imgWrap {
@@ -72,23 +74,23 @@
 
 .name {
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: baseFont;
   margin-bottom: 0.6em;
 }
 
 .moreBtn {
   margin-bottom: 0.6em;
-  font-size: 1.4rem;
-  color: #666;
+  font-size: baseFont;
+  color: orgingGray;
 }
 
 .moreBtn:hover {
-  color: #1d1d1d;
+  color: brightBlack;
 }
 
 .videoDesc {
-  font-size: 1.4rem;
-  color: #666;
+  font-size: baseFont;
+  color: orgingGray;
   white-space: pre-wrap;
 }
 
@@ -105,26 +107,21 @@
 
 .content.dark .intro,
 .content.dark .info {
-  border-color: #1d1d1d;
+  border-color: brightBlack;
 }
 
 .content.dark .title {
-  color: #fcfcfc;
+  color: middleWhite;
 }
 
 .content.dark .name {
-  color: #fcfcfc;
-}
-
-.content.dark .likeBtn {
-  background-color: #212121;
-  color: #666;
+  color: middleWhite;
 }
 
 .content.dark .likeBtn:hover {
-  background-color: #353535;
+  color: middleWhite;
 }
 
 .content.dark .moreBtn:hover {
-  color: #fefefe;
+  color: middleWhite;
 }
