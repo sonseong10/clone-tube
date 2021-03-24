@@ -85,7 +85,11 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
               className={`${styles.moblieBtn} ${styles.toolBtn} ${styles.search}`}
               onClick={handleMobileICon}
               aria-label="검색 활성화"
-            ></button>
+            >
+              <span class={styles.screenOut} aria-hidden="true">
+                검색 활성화
+              </span>
+            </button>
             <div className={styles.tooltipBox}>
               <span>검색</span>
             </div>
@@ -95,7 +99,11 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
               type="button"
               className={`${styles.toolBtn} ${styles.alarm}`}
               aria-label="알림 메시지"
-            ></button>
+            >
+              <span class={styles.screenOut} aria-hidden="true">
+                알림 메시지
+              </span>
+            </button>
             <div className={styles.tooltipBox}>
               <span>알림</span>
             </div>
@@ -104,8 +112,12 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.mirror}`}
-              aria-label="미러링"
-            ></button>
+              aria-label="화면 미러링"
+            >
+              <span class={styles.screenOut} aria-hidden="true">
+                화면 미러링
+              </span>
+            </button>
             <div className={styles.tooltipBox}>
               <span>미러링</span>
             </div>
@@ -115,7 +127,11 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
               type="button"
               className={`${styles.toolBtn} ${styles.user}`}
               aria-label="사용자 정보"
-            ></button>
+            >
+              <span class={styles.screenOut} aria-hidden="true">
+                사용자 정보 보기
+              </span>
+            </button>
             <div className={styles.tooltipBox}>
               <span>사용자</span>
             </div>

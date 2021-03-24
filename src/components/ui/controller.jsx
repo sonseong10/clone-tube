@@ -22,7 +22,11 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
         onClick={onModeChange}
         onBlur={hadletoggleBtn}
         aria-label="다크모드 변경"
-      ></button>
+      >
+        <span class={styles.screenOut} aria-hidden="true">
+          다크모드 변경
+        </span>
+      </button>
       <div className={styles.tooltipBox}>
         <span>다크모드</span>
       </div>
@@ -30,7 +34,11 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
         className={`${styles.controlBtn} ${styles.top} ${showIcon}`}
         onClick={handleMoveTop}
         aria-label="위로 이동"
-      ></button>
+      >
+        <span class={styles.screenOut} aria-hidden="true">
+          위로 이동
+        </span>
+      </button>
       <div className={styles.tooltipBox}>
         <span>위로</span>
       </div>
@@ -38,7 +46,11 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
         className={`${styles.controlBtn} ${styles.control}`}
         onClick={hadletoggleBtn}
         aria-label="설정 열기"
-      ></button>
+      >
+        <span class={styles.screenOut} aria-hidden="true">
+          설정 열기
+        </span>
+      </button>
       <div className={styles.tooltipBox}>
         <span>설정</span>
       </div>
