@@ -21,6 +21,7 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
         className={`${styles.controlBtn} ${styles.darkmode} ${showIcon} ${activeType}`}
         onClick={onModeChange}
         onBlur={hadletoggleBtn}
+        aria-label="다크모드 변경"
       ></button>
       <div className={styles.tooltipBox}>
         <span>다크모드</span>
@@ -28,6 +29,7 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
       <button
         className={`${styles.controlBtn} ${styles.top} ${showIcon}`}
         onClick={handleMoveTop}
+        aria-label="위로 이동"
       ></button>
       <div className={styles.tooltipBox}>
         <span>위로</span>
@@ -35,6 +37,7 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
       <button
         className={`${styles.controlBtn} ${styles.control}`}
         onClick={hadletoggleBtn}
+        aria-label="설정 열기"
       ></button>
       <div className={styles.tooltipBox}>
         <span>설정</span>

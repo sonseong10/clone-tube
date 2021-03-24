@@ -69,7 +69,12 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
             )
           })}
         </ul>
-        <input type="submit" value="" className={styles.submitBtn} />
+        <input
+          type="submit"
+          value=""
+          className={styles.submitBtn}
+          aria-label="검색어 제출"
+        />
         <span className={styles.screenOut}>검색</span>
       </form>
       <nav>
@@ -79,6 +84,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
               type="button"
               className={`${styles.moblieBtn} ${styles.toolBtn} ${styles.search}`}
               onClick={handleMobileICon}
+              aria-label="검색 활성화"
             ></button>
             <div className={styles.tooltipBox}>
               <span>검색</span>
@@ -88,6 +94,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.alarm}`}
+              aria-label="알림 메시지"
             ></button>
             <div className={styles.tooltipBox}>
               <span>알림</span>
@@ -97,6 +104,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.mirror}`}
+              aria-label="미러링"
             ></button>
             <div className={styles.tooltipBox}>
               <span>미러링</span>
@@ -106,6 +114,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.user}`}
+              aria-label="사용자 정보"
             ></button>
             <div className={styles.tooltipBox}>
               <span>사용자</span>
