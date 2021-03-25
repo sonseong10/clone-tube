@@ -51,3 +51,14 @@ After: width길이 제한, 다크모드 적용
 - 변수 작명: CSS적용을 위한 class명, state 변수 등 유지보수를 위한 변수명 작성이 어려웠습니다.
   > ✅ 처음엔 BEM방법론으로 스타일을 적용하며 [Postcss](https://postcss.org/)로 해당하는 component에서만 스타일 적용이 가능하니 빠르게 작성 할 수 있었습니다.
 - state 불변성: 평소 객체에서 pop(), push() 등 객체 자체를 변경하는 방식으로 해왔다면 React는 state 불변성을 유지해야 하기 때문에 map()과 같은 새로운 객체를 리턴하는 방식으로 변경했습니다.
+
+## 이후 계획
+
+### 크롬 개발자도구에 Lighthouse 결과
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/68719427/112408877-e3e66680-8d5b-11eb-80d3-22e9204abe13.png" alt="logo">
+</p>
+
+- 성능개선: SPA의 특징인 첫 화면이 보이는 시간단축을 위한 [스켈레톤](https://ui.toast.com/weekly-pick/ko_20201110) 지원과 Youtube API로 받는 이미지 사이즈를 개선 할 방법을 찾을 예정입니다.
+- PWA: 모바일 환경을 위한 [프로그레시브 웹 앱](https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps) 지원 예정입니다.
