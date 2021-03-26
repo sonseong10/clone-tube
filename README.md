@@ -54,6 +54,10 @@ After: width길이 제한, 다크모드 적용
 
 ## 이후 계획
 
+### 업데이트 발생 시
+
+해당 링크에서 확인 해 주세요.[Link](./detail.md)
+
 ### 크롬 개발자도구에 Lighthouse 결과
 
 <p align="center">
