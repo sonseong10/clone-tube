@@ -15,7 +15,6 @@ class YoutubeApi {
         regionCode: 'KR',
       },
     })
-
     this.channels.splice(0, this.channels.length)
     response.data.items.map((item) => {
       const setResult = { ...item, title: decode(item.snippet.title) }
@@ -36,15 +35,14 @@ class YoutubeApi {
         type: 'video',
       },
     })
-
-    this.channels.splice(0, this.channels.length)
     response.data.items.map((item) => {
       const setResult = {
         ...item,
+        etag: item.etag + this.setRendoum(),
         id: item.id.videoId,
         title: decode(item.snippet.title),
       }
-      return this.channels.push(
+      return this.channels.unshift(
         this.setChannelItem(setResult.snippet.channelId, setResult)
       )
     })
@@ -61,6 +59,10 @@ class YoutubeApi {
     })
     item.snippet.channels = response.data.items[0].snippet.thumbnails.medium.url
     return Promise.resolve(item)
+  }
+
+  setRendoum = () => {
+    return Math.random() * (1 - 100) + 24
   }
 }
 
