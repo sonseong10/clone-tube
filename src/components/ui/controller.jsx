@@ -24,7 +24,7 @@ const Controller = ({ modes, onModeChange }) => {
         onBlur={hadletoggleBtn}
         aria-label="다크모드 변경"
       >
-        <span class={styles.screenOut} aria-hidden="true">
+        <span className={styles.screenOut} aria-hidden="true">
           다크모드 변경
         </span>
       </button>
@@ -36,7 +36,7 @@ const Controller = ({ modes, onModeChange }) => {
         onClick={handleMoveTop}
         aria-label="위로 이동"
       >
-        <span class={styles.screenOut} aria-hidden="true">
+        <span className={styles.screenOut} aria-hidden="true">
           위로 이동
         </span>
       </button>
@@ -48,7 +48,7 @@ const Controller = ({ modes, onModeChange }) => {
         onClick={hadletoggleBtn}
         aria-label="설정 열기"
       >
-        <span class={styles.screenOut} aria-hidden="true">
+        <span className={styles.screenOut} aria-hidden="true">
           설정 열기
         </span>
       </button>
