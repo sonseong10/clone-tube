@@ -12,7 +12,7 @@ const VideoItem = memo(
   }) => {
     const [title, setTitle] = useState('CloneTube')
     const listLayout = layout === 'column' ? styles.column : styles.row
-    const modeType = modes === 'light' ? styles.light : styles.dark
+    const modeType = modes === true ? styles.light : styles.dark
 
     useEffect(() => {
       document.title = title

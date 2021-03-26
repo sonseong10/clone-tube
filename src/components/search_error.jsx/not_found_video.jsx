@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../../assets/style/search_error.module.css'
 
 const NotFoundContainer = ({ modes }) => {
-  const modeType = modes === 'light' ? styles.light : styles.dark
+  const modeType = modes === true ? styles.light : styles.dark
   return (
     <section className={`${styles.wrapper} ${modeType}`}>
       <div className={styles.imgContainer}>

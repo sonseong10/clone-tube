@@ -13,19 +13,30 @@ import Controller from './components/ui/controller'
 function App({ youtube }) {
   const [videos, setVideos] = useState([])
   const [selectedVideo, setSelectedVideo] = useState(null)
-  const [modes, setModes] = useState('light')
-  const [activeIcon, setActiveIcon] = useState('inactive')
   const [toggleLike, setToggleLike] = useState('Like')
+
+  const [dark, setDark] = useState(localStorage.getItem('darkMode') === 'true')
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', dark)
+  }, [dark])
 
   const toggleLikeBtn = () => {
     setToggleLike(toggleLike === 'Like' ? 'Liked' : 'Like')
   }
 
   const handleModeChange = (event) => {
-    document.body.classList.toggle('dark')
-    setModes(modes === 'light' ? 'dark' : 'light')
-    setActiveIcon(activeIcon === 'inactive' ? 'active' : 'inactive')
+    onBodyChange()
+    setDark(!dark)
     event.target.blur()
+  }
+
+  function onBodyChange() {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.remove('dark')
+    }
   }
 
   const search = useCallback(
@@ -53,33 +64,29 @@ function App({ youtube }) {
 
   return (
     <>
-      <HeaderGnb onSearch={search} modes={modes} />
+      <HeaderGnb onSearch={search} modes={dark} />
       <main className={styles.container}>
         {selectedVideo && (
           <VideoContent
             video={selectedVideo}
             toggleLike={toggleLike}
             toggleLikeBtn={toggleLikeBtn}
-            modes={modes}
+            modes={dark}
           />
         )}
         {videos.length === 0 ? (
-          <NotFoundContainer modes={modes} />
+          <NotFoundContainer modes={dark} />
         ) : (
           <VideoList
             videos={videos}
             onVideoClick={selectVideo}
             layout={selectedVideo ? 'column' : 'row'}
             setToggleLike={setToggleLike}
-            modes={modes}
+            modes={dark}
           />
         )}
       </main>
-      <Controller
-        onModeChange={handleModeChange}
-        activeIcon={activeIcon}
-        modes={modes}
-      />
+      <Controller onModeChange={handleModeChange} modes={dark} />
     </>
   )
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import styles from '../../assets/style/ui_style.module.css'
 
-const Controller = ({ modes, onModeChange, activeIcon }) => {
+const Controller = ({ modes, onModeChange }) => {
   const [showIcon, setShowIcon] = useState(styles.hide)
-  const modeType = modes === 'light' ? styles.light : styles.dark
-  const activeType = activeIcon === 'active' ? styles.active : 'inactive'
+  const modeType = modes === true ? styles.light : styles.dark
+  const activeType = modes === true ? styles.inactive : styles.active
 
   const hadletoggleBtn = () => {
     setShowIcon(showIcon === styles.hide ? styles.show : styles.hide)
@@ -19,6 +19,7 @@ const Controller = ({ modes, onModeChange, activeIcon }) => {
     <nav className={`${styles.snb} ${modeType}`}>
       <button
         className={`${styles.controlBtn} ${styles.darkmode} ${showIcon} ${activeType}`}
+        id="darkmode"
         onClick={onModeChange}
         onBlur={hadletoggleBtn}
         aria-label="다크모드 변경"

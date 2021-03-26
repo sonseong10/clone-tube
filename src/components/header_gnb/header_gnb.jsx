@@ -7,7 +7,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
   const [mobileBtn, setmobileBtn] = useState(styles.close)
   const inputRef = useRef()
 
-  const modeType = modes === 'light' ? styles.light : styles.dark
+  const modeType = modes === true ? styles.light : styles.dark
 
   const handleMobileICon = (event) => {
     event.target.blur()
