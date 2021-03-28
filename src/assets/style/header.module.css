@@ -30,16 +30,13 @@
   height: 3em;
 }
 
-.form.open .history {
-  top: 50px;
-}
-
 .searchInput {
   flex-grow: 20;
   padding: 0.4em 0.6em;
   border: 1px solid brightGray;
   border-radius: 2px 0 0 0.2em;
   border-right: none;
+  height: 2.2em;
   color: brightBlack;
   font-size: baseFont;
 }
@@ -86,9 +83,9 @@
   border-radius: 0 2px 2px 0;
   width: 6.6em;
   height: 3em;
-  background-image: url('../../assets/images/header_icon_split.svg');
+  background-image: url('../../assets/images/submit-icon.svg');
   background-repeat: no-repeat;
-  background-position: 2.2em -8em;
+  background-position: 18px;
   background-size: cover;
   background-color: middleWhite;
 }
@@ -96,7 +93,7 @@
 .submitBtn:hover,
 .submitBtn:focus {
   background-color: darkWhite;
-  background-position: -2em -8em;
+  background-position: -96px;
 }
 
 /* navigation */
@@ -143,23 +140,19 @@
 }
 
 /* hover and focus*/
-.search:hover,
-.search:focus {
+.search:hover {
   background-position: -36px -80px;
 }
 
-.alarm:hover,
-.alarm:focus {
+.alarm:hover {
   background-position: -36px -37px;
 }
 
-.mirror:hover,
-.mirror:focus {
+.mirror:hover {
   background-position: -36px 8px;
 }
 
-.user:hover,
-.user:focus {
+.user:hover {
   background-position: -36px -124px;
 }
 
@@ -197,36 +190,28 @@
   background-color: middleGray;
 }
 
-.gnb.dark .submitBtn:hover,
-.gnb.dark .submitBtn:focus {
+.gnb.dark .submitBtn:hover {
   background-color: middleGray;
-  background-image: url('../../assets/images/dark_mode_icon.svg');
-  background-position: right 20px top -86px;
-  background-size: auto;
+  background-position: -40px;
 }
 
-.gnb.dark .toolBtn:hover,
-.gnb.dark .toolBtn:focus {
+.gnb.dark .toolBtn:hover {
   background-image: url('../../assets/images/dark_mode_icon.svg');
 }
 
-.gnb.dark .alarm:hover,
-.gnb.dark .alarm:focus {
+.gnb.dark .alarm:hover {
   background-position: 8px -37px;
 }
 
-.gnb.dark .mirror:hover,
-.gnb.dark .mirror:focus {
+.gnb.dark .mirror:hover {
   background-position: 8px 8px;
 }
 
-.gnb.dark .user:hover,
-.gnb.dark .user:focus {
+.gnb.dark .user:hover {
   background-position: 8px -124px;
 }
 
-.gnb.dark .search:hover,
-.gnb.dark .search:focus {
+.gnb.dark .search:hover {
   background-position: 8px -80px;
 }
 
@@ -256,13 +241,9 @@
 }
 
 .mirror:hover + .tooltipBox,
-.mirror:focus + .tooltipBox,
 .alarm:hover + .tooltipBox,
-.alarm:focus + .tooltipBox,
 .search:hover + .tooltipBox,
-.search:focus + .tooltipBox,
-.user:hover + .tooltipBox,
-.user:focus + .tooltipBox {
+.user:hover + .tooltipBox {
   display: block;
 }
 
@@ -274,7 +255,7 @@
     margin-left: 0;
     padding: 1em 2em;
     width: 100vw;
-    height: auto;
+    height: 4.8em;
     max-width: none;
     background-color: orginWhite;
   }

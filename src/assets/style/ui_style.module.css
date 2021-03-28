@@ -57,8 +57,7 @@
   background-position: 12px 12px;
 }
 
-.darkmode:hover,
-.darkmode:focus {
+.darkmode:hover {
   background-position: right 12px top 12px;
 }
 
