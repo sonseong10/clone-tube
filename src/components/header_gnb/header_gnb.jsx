@@ -4,15 +4,14 @@ import styles from '../../assets/style/header.module.css'
 
 const HeaderGnb = memo(({ onSearch, modes }) => {
   const [historyItems, setHistoryItems] = useState([])
-  const [mobileBtn, setmobileBtn] = useState(styles.close)
+  const [mobileBtn, setFormToggle] = useState(styles.close)
   const inputRef = useRef()
 
   const modeType = modes === true ? styles.light : styles.dark
 
-  const handleMobileICon = (event) => {
-    event.target.blur()
+  const handleMobileIcon = () => {
+    setFormToggle(mobileBtn === styles.close ? styles.open : styles.close)
     inputRef.current.focus()
-    setmobileBtn(mobileBtn === styles.close ? styles.open : styles.close)
   }
 
   const handleSubmit = (event) => {
@@ -21,10 +20,15 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
     if (inputValue !== '') {
       inputRef.current.blur()
       onSearch(inputValue)
+      setFormToggle(styles.close)
       historyUpdate(inputValue)
     } else {
       inputRef.current.focus()
     }
+  }
+
+  const handleBlur = () => {
+    setFormToggle(styles.close)
   }
 
   const historyUpdate = (inputValue) => {
@@ -39,6 +43,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
   const historySerch = (event) => {
     const historyValue = event.target.value
     onSearch(historyValue)
+    setFormToggle(styles.close)
   }
 
   return (
@@ -52,6 +57,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
           placeholder="검색"
           className={styles.searchInput}
           ref={inputRef}
+          onBlur={handleBlur}
         />
         <ul className={styles.history}>
           {historyItems.map((item) => {
@@ -69,13 +75,15 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
             )
           })}
         </ul>
-        <input
+        <button
           type="submit"
-          value=""
           className={styles.submitBtn}
-          aria-label="검색어 제출"
-        />
-        <span className={styles.screenOut}>검색</span>
+          onFocus={() => {
+            setFormToggle(styles.open)
+          }}
+        >
+          <span className={styles.screenOut}>검색어 제출</span>
+        </button>
       </form>
       <nav>
         <ul className={styles.toolList}>
@@ -83,57 +91,45 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
             <button
               type="button"
               className={`${styles.moblieBtn} ${styles.toolBtn} ${styles.search}`}
-              onClick={handleMobileICon}
-              aria-label="검색 활성화"
+              onClick={handleMobileIcon}
             >
-              <span className={styles.screenOut} aria-hidden="true">
-                검색 활성화
-              </span>
+              <span className={styles.screenOut}>검색 활성화</span>
             </button>
             <div className={styles.tooltipBox}>
-              <span>검색</span>
+              <span aria-hidden="true">검색</span>
             </div>
           </li>
           <li className={styles.toolItem}>
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.alarm}`}
-              aria-label="알림 메시지"
             >
-              <span className={styles.screenOut} aria-hidden="true">
-                알림 메시지
-              </span>
+              <span className={styles.screenOut}>알림 메시지</span>
             </button>
             <div className={styles.tooltipBox}>
-              <span>알림</span>
+              <span aria-hidden="true">알림</span>
             </div>
           </li>
           <li className={styles.toolItem}>
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.mirror}`}
-              aria-label="화면 미러링"
             >
-              <span className={styles.screenOut} aria-hidden="true">
-                화면 미러링
-              </span>
+              <span className={styles.screenOut}>화면 미러링</span>
             </button>
             <div className={styles.tooltipBox}>
-              <span>미러링</span>
+              <span aria-hidden="true">미러링</span>
             </div>
           </li>
           <li className={styles.toolItem}>
             <button
               type="button"
               className={`${styles.toolBtn} ${styles.user}`}
-              aria-label="사용자 정보"
             >
-              <span className={styles.screenOut} aria-hidden="true">
-                사용자 정보 보기
-              </span>
+              <span className={styles.screenOut}>사용자 정보 보기</span>
             </button>
             <div className={styles.tooltipBox}>
-              <span>사용자</span>
+              <span aria-hidden="true">사용자</span>
             </div>
           </li>
         </ul>

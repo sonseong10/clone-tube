@@ -1,14 +1,8 @@
-/* rem */
-@value baseRem: 1.4rem;
-@value middleRem: 1.8rem;
-@value lageRem: 2.4rem;
-@value xlRem: 2.8rem;
-
-/* font */
-@value baseFont: baseRem;
-@value midFont: middleRem;
-@value lageFont: lageRem;
-@value xlFont: xlRem;
+/* font size */
+@value baseFont: 1.4rem;
+@value midFont: 1.8rem;
+@value lageFont: 2.4rem;
+@value xlFont: 2.8rem;
 
 /* noto-sans-kr-regular - korean */
 @font-face {

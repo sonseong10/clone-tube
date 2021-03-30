@@ -2,7 +2,7 @@
 @value color: '../../assets/common/color.css';
 @value font: '../../assets/common/font.css';
 
-@value mediaLarge from layout;
+@value customSize from layout;
 @value orginWhite, middleWhite, darkWhite, brightGray, orgingGray, middleGray, brightBlack, middleBlack, orgingBlack, opacityBlack from color;
 @value baseFont from font;
 
@@ -22,21 +22,16 @@
 .form {
   position: relative;
   display: flex;
-  align-items: center;
   flex-basis: 50%;
-  margin: 0 0 0 4em;
-  padding: 0 0.4em;
-  max-width: 80em;
-  height: 3em;
+  margin-left: 4em;
 }
 
 .searchInput {
   flex-grow: 20;
   padding: 0.4em 0.6em;
   border: 1px solid brightGray;
-  border-radius: 2px 0 0 0.2em;
+  border-radius: 2px 0 0 2px;
   border-right: none;
-  height: 2.2em;
   color: brightBlack;
   font-size: baseFont;
 }
@@ -82,10 +77,9 @@
   border: 1px solid brightGray;
   border-radius: 0 2px 2px 0;
   width: 6.6em;
-  height: 3em;
   background-image: url('../../assets/images/submit-icon.svg');
   background-repeat: no-repeat;
-  background-position: 18px;
+  background-position: 2em;
   background-size: cover;
   background-color: middleWhite;
 }
@@ -93,7 +87,7 @@
 .submitBtn:hover,
 .submitBtn:focus {
   background-color: darkWhite;
-  background-position: -96px;
+  background-position: -7.9em;
 }
 
 /* navigation */
@@ -190,9 +184,9 @@
   background-color: middleGray;
 }
 
-.gnb.dark .submitBtn:hover {
-  background-color: middleGray;
-  background-position: -40px;
+.gnb.dark .submitBtn:hover,
+.gnb.dark .submitBtn:focus {
+  background-position: -2.9em;
 }
 
 .gnb.dark .toolBtn:hover {
@@ -247,7 +241,7 @@
   display: block;
 }
 
-@media mediaLarge {
+@media customSize {
   .form {
     position: fixed;
     left: 0;
@@ -256,8 +250,18 @@
     padding: 1em 2em;
     width: 100vw;
     height: 4.8em;
-    max-width: none;
     background-color: orginWhite;
+  }
+
+  .submitBtn:hover,
+  .submitBtn:focus {
+    background-position: -7.5em;
+  }
+
+  .gnb.dark .submitBtn:hover,
+  .gnb.dark .submitBtn:focus {
+    background-color: middleGray;
+    background-position: -2.8em;
   }
 
   .history {
@@ -269,6 +273,7 @@
   }
 
   .gnb .form.close {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
   }
 }

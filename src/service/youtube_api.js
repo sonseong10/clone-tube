@@ -35,18 +35,21 @@ class YoutubeApi {
         type: 'video',
       },
     })
-    response.data.items.map((item) => {
-      const setResult = {
-        ...item,
-        etag: item.etag + this.setRendoum(),
-        id: item.id.videoId,
-        title: decode(item.snippet.title),
-      }
-      return this.channels.unshift(
-        this.setChannelItem(setResult.snippet.channelId, setResult)
-      )
-    })
-
+    if (response.data.items.length === 0) {
+      this.channels.splice(0, this.channels.length)
+    } else {
+      response.data.items.map((item) => {
+        const setResult = {
+          ...item,
+          etag: item.etag + this.setRendoum(),
+          id: item.id.videoId,
+          title: decode(item.snippet.title),
+        }
+        return this.channels.unshift(
+          this.setChannelItem(setResult.snippet.channelId, setResult)
+        )
+      })
+    }
     return Promise.all(this.channels).then((values) => values)
   }
 

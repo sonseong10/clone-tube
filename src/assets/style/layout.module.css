@@ -1,6 +1,6 @@
 @value layout: '../common/break_point.css';
 
-@value mediaMicro, mediaSmall, mediaMiddle, mediaLarge, mediaXL from layout;
+@value mediaMicro, mediaSmall, mediaMiddle, mediaLarge, customSize from layout;
 
 .container {
   display: flex;
@@ -26,13 +26,13 @@
   }
 }
 
-@media mediaLarge {
+@media customSize {
   .container {
     flex-direction: column;
   }
 }
 
-@media mediaXL {
+@media mediaLarge {
   .container {
     max-width: 160em;
   }

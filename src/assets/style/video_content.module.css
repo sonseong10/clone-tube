@@ -92,10 +92,11 @@
   font-size: baseFont;
   color: orgingGray;
   white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .videoDesc.show {
-  max-height: auto;
+  max-height: 100%;
 }
 
 .videoDesc.hide {
