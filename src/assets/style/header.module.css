@@ -110,7 +110,8 @@
 }
 
 .moblieBtn {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .toolList .toolItem:not(:last-child) {
@@ -224,7 +225,7 @@
   position: absolute;
   left: -6px;
   top: 62px;
-  display: none;
+  display: block;
   padding: 0.4em;
   min-width: 3.6em;
   border-radius: 2px;
@@ -232,13 +233,24 @@
   font-size: baseFont;
   color: middleWhite;
   text-align: center;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .mirror:hover + .tooltipBox,
 .alarm:hover + .tooltipBox,
 .search:hover + .tooltipBox,
 .user:hover + .tooltipBox {
-  display: block;
+  opacity: 1;
+}
+
+@media (hover: none), (hover: on-demand) {
+  .mirror:hover + .tooltipBox,
+  .alarm:hover + .tooltipBox,
+  .search:hover + .tooltipBox,
+  .user:hover + .tooltipBox {
+    opacity: 0;
+  }
 }
 
 @media customSize {
@@ -269,7 +281,8 @@
   }
 
   .search.moblieBtn {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
   }
 
   .gnb .form.close {

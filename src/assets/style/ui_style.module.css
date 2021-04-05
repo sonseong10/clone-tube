@@ -106,7 +106,6 @@
 /* tooltip */
 .tooltipBox {
   position: absolute;
-  display: none;
   padding: 0.4em;
   min-width: 3.6em;
   border-radius: 2px;
@@ -114,6 +113,8 @@
   font-size: baseFont;
   color: middleWhite;
   text-align: center;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .snb > .tooltipBox {
@@ -125,7 +126,15 @@
 .darkmode:hover + .tooltipBox,
 .top:hover + .tooltipBox,
 .control:hover + .tooltipBox {
-  display: block;
+  opacity: 1;
+}
+
+@media (hover: none), (hover: on-demand) {
+  .darkmode:hover + .tooltipBox,
+  .top:hover + .tooltipBox,
+  .control:hover + .tooltipBox {
+    opacity: 0;
+  }
 }
 
 .darkmode + .tooltipBox {
