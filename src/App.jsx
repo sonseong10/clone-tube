@@ -14,8 +14,13 @@ function App({ youtube }) {
   const [videos, setVideos] = useState([])
   const [selectedVideo, setSelectedVideo] = useState(null)
   const [toggleLike, setToggleLike] = useState('Like')
+  const [title, setTitle] = useState('CloneTube')
 
   const [dark, setDark] = useState(localStorage.getItem('darkMode') === 'true')
+
+  useEffect(() => {
+    document.title = title
+  }, [title])
 
   useEffect(() => {
     localStorage.setItem('darkMode', dark)
@@ -75,7 +80,7 @@ function App({ youtube }) {
           />
         )}
         {videos.length === 0 ? (
-          <NotFoundContainer modes={dark} />
+          <NotFoundContainer modes={dark} setTitle={setTitle} />
         ) : (
           <VideoList
             videos={videos}
@@ -83,6 +88,7 @@ function App({ youtube }) {
             layout={selectedVideo ? 'column' : 'row'}
             setToggleLike={setToggleLike}
             modes={dark}
+            setTitle={setTitle}
           />
         )}
       </main>

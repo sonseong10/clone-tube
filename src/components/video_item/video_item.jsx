@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo } from 'react'
 import styles from '../../assets/style/video_item.module.css'
 
 const VideoItem = memo(
@@ -9,14 +9,10 @@ const VideoItem = memo(
     layout,
     setToggleLike,
     modes,
+    setTitle,
   }) => {
-    const [title, setTitle] = useState('CloneTube')
     const listLayout = layout === 'column' ? styles.column : styles.row
     const modeType = modes === true ? styles.light : styles.dark
-
-    useEffect(() => {
-      document.title = title
-    }, [title])
 
     const onClickUpdateTitle = () => setTitle(`${video.title} | CloneTube`)
 

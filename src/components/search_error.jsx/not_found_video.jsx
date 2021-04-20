@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from '../../assets/style/search_error.module.css'
 
-const NotFoundContainer = ({ modes }) => {
+const NotFoundContainer = ({ modes, setTitle }) => {
   const modeType = modes === true ? styles.light : styles.dark
+  setTitle('CloneTube')
   return (
     <section className={`${styles.wrapper} ${modeType}`}>
       <div className={styles.imgContainer}>

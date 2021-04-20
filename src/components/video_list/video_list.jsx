@@ -3,7 +3,7 @@ import VideoItem from '../video_item/video_item'
 import styles from '../../assets/style/video_list.module.css'
 
 const VideoList = memo(
-  ({ videos, onVideoClick, layout, setToggleLike, modes }) => {
+  ({ videos, onVideoClick, layout, setToggleLike, modes, setTitle }) => {
     const listLayout = layout === 'column' ? styles.column : styles.row
     return (
       <ul className={`${styles.list} ${listLayout}`}>
@@ -15,6 +15,7 @@ const VideoList = memo(
             layout={layout}
             setToggleLike={setToggleLike}
             modes={modes}
+            setTitle={setTitle}
           />
         ))}
       </ul>
