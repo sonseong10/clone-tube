@@ -1,4 +1,4 @@
-# 1차 수정(2021.03.26 기준)
+## 1차 수정(2021.03.26 기준)
 
 ## DarkMode
 
@@ -81,3 +81,33 @@ setRendoum = () => {
 
 랜덤숫자를 문자열에 추가하여 최대한 동일한 key를 방지했습니다.
 다른 방식으로는 [npm uuid](https://www.npmjs.com/package/uuid)가 있습니다.
+
+## 2차 수정(2021.04.20 기준)
+
+HTML lang 번경되었습니다.
+
+웹 접근성을 위해 메인페이지 영상 및 검색 결과가 한국 기준으로 제공하기 때문에
+[w3bai](http://www.w3bai.com/ko/tags/ref_language_codes.html) 참고로 기존 kr → ko-KR로 변경되었습니다.
+
+```html
+<html lang="ko-KR"></html>
+```
+
+사이트 타이틀을 최상위 컴포넌트에서 관리합니다.
+
+자식 컴포넌트에서 타이틀 상태를 가지고 관리하다 보니
+검색 결과가 없는 경우 타이틀이 이전 영상 타이틀로 유지되는 이슈 가 있었습니다. 해결하기 위해 최상위 컴포넌트로 옮기고 이벤트 발생 시 상태를 내려주는 방식으로 좀 더 React스럽게 변경되었습니다.
+
+App.jsx
+
+```js
+const [title, setTitle] = useState('CloneTube')
+```
+
+## 3차 수정(2021.04.29 기준)
+
+DarkMode 상태 오류 수정
+
+![darkmode-issu](https://user-images.githubusercontent.com/68719427/116504771-11db3f80-a8f4-11eb-9e68-d14225561ccd.png)
+
+다크모드 상태에서 값이 false로 유지되던 버그를 true가 되도록 변경되었습니다.
