@@ -5,7 +5,7 @@ import styles from '../../assets/style/video_content.module.css'
 const VideoContent = memo(
   ({ video, video: { snippet }, toggleLike, toggleLikeBtn, modes }) => {
     const [toggleType, setToggleType] = useState(styles.hide)
-    const modeType = modes === true ? styles.light : styles.dark
+    const modeType = modes === true ? styles.dark : styles.light
     const handleToggle = () =>
       setToggleType(toggleType === styles.hide ? styles.show : styles.hide)
 

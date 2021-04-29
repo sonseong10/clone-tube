@@ -3,8 +3,8 @@ import styles from '../../assets/style/ui_style.module.css'
 
 const Controller = ({ modes, onModeChange }) => {
   const [showIcon, setShowIcon] = useState(styles.hide)
-  const modeType = modes === true ? styles.light : styles.dark
-  const activeType = modes === true ? styles.inactive : styles.active
+  const modeType = modes === true ? styles.dark : styles.light
+  const activeType = modes === true ? styles.active : styles.inactive
 
   const hadletoggleBtn = () => {
     setShowIcon(showIcon === styles.hide ? styles.show : styles.hide)

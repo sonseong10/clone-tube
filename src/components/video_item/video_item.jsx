@@ -12,7 +12,7 @@ const VideoItem = memo(
     setTitle,
   }) => {
     const listLayout = layout === 'column' ? styles.column : styles.row
-    const modeType = modes === true ? styles.light : styles.dark
+    const modeType = modes === true ? styles.dark : styles.light
 
     const onClickUpdateTitle = () => setTitle(`${video.title} | CloneTube`)
 

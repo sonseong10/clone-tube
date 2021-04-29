@@ -37,11 +37,7 @@ function App({ youtube }) {
   }
 
   function onBodyChange() {
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark')
-    } else {
-      document.body.classList.remove('dark')
-    }
+    document.body.classList.toggle('dark')
   }
 
   const search = useCallback(

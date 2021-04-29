@@ -7,7 +7,7 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
   const [mobileBtn, setFormToggle] = useState(styles.close)
   const inputRef = useRef()
 
-  const modeType = modes === true ? styles.light : styles.dark
+  const modeType = modes === true ? styles.dark : styles.light
 
   const handleMobileIcon = () => {
     setFormToggle(mobileBtn === styles.close ? styles.open : styles.close)
