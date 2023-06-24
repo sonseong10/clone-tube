@@ -183,16 +183,17 @@
 
 .gnb.dark .submitBtn {
   border: 1px solid middleGray;
-  background-color: middleGray;
+  background: url('../../assets/images/dark_mode_icon.svg')no-repeat 15px -81px;
 }
 
 .gnb.dark .submitBtn:hover,
 .gnb.dark .submitBtn:focus {
-  background-position: -2.9em;
+  background: url('../../assets/images/dark_mode_icon.svg')no-repeat 15px -81px;
+  background-color: middleGray;
 }
 
 .gnb.dark .toolBtn:hover {
-  background-image: url('../../assets/images/dark_mode_icon.svg');
+  background: url('../../assets/images/dark_mode_icon.svg') no-repeat;
 }
 
 .gnb.dark .alarm:hover {

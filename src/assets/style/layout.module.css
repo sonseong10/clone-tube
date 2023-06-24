@@ -2,7 +2,7 @@
 @value color: '../common/color.css';
 
 @value mediaMicro, mediaSmall, mediaMiddle, mediaLarge, customSize from layout;
-@value darkWhite, brightGray from color;
+@value darkWhite, brightGray, middleBlack, orgingBlack  from color;
 .wrapper {
   position: relative;
   display: flex;
@@ -104,10 +104,50 @@
       }
     }
   }
+
+  .gnb.dark {
+    & nav {
+      & div {
+        border-bottom: 1px solid brightGray;
+        & ul {
+          & li {
+            & a {
+              color: darkWhite;
+              display: inline-block;
+              width: 100%;
+              padding: 0 17px;
+              height: 48px;
+              border-radius: 12px;
+              font-size: 1.4rem;
+              line-height: 48px;
+              font-weight: 400;
+              flex: 1;
+  
+              &:hover {
+                background-color: orgingBlack;
+              }
+            } 
+          }
+        }
+  
+        & strong {
+          color: darkWhite;
+          display: block;
+          padding: 6px 12px 4px;
+          font-size: 1.6rem;
+          line-height: 2.2rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
 }
 
 .isActive {
   background-color: darkWhite;
+}
+.isActive.dark {
+  background-color: orgingBlack;
 }
 
 .isOpen {

@@ -69,12 +69,19 @@ function App({ youtube }) {
       <HeaderGnb onSearch={search} modes={dark} />
       <div className={styles.wrapper}>
         {!selectedVideo && (
-          <aside className={styles.gnb}>
+          <aside
+            className={`${styles.gnb} ${dark ? styles.dark : styles.light}`}
+          >
             <nav>
               <div>
                 <ul>
                   <li>
-                    <Link to={void 0} className={styles.isActive}>
+                    <Link
+                      to={void 0}
+                      className={`${styles.isActive} ${
+                        dark ? styles.dark : styles.light
+                      }`}
+                    >
                       홈
                     </Link>
                   </li>
