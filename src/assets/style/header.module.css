@@ -24,16 +24,18 @@
   display: flex;
   flex-basis: 50%;
   margin-left: 4em;
+  height: 40px;
 }
 
 .searchInput {
   flex-grow: 20;
   padding: 0.4em 0.6em;
   border: 1px solid brightGray;
-  border-radius: 2px 0 0 2px;
+  border-radius: 40px 0 0 40px;
   border-right: none;
   color: brightBlack;
   font-size: baseFont;
+  padding-left: 20px;
 }
 
 .searchInput:focus + .history {
@@ -44,7 +46,7 @@
 .history {
   position: absolute;
   left: 0;
-  top: 3.4em;
+  top: 4em;
   padding: 0;
   width: 100%;
   max-height: 0;
@@ -75,19 +77,18 @@
 .submitBtn {
   cursor: pointer;
   border: 1px solid brightGray;
-  border-radius: 0 2px 2px 0;
-  width: 6.6em;
-  background-image: url('../../assets/images/submit-icon.svg');
-  background-repeat: no-repeat;
-  background-position: 2em;
-  background-size: cover;
+  border-radius: 0 40px 40px 0;
+  width: 6em;
+  background: url('../../assets/images/search.svg') no-repeat 18px center;
+  background-size: 20px;
   background-color: middleWhite;
 }
 
 .submitBtn:hover,
 .submitBtn:focus {
+  background: url('../../assets/images/search.svg') no-repeat 18px center;
+  background-size: 20px;
   background-color: darkWhite;
-  background-position: -7.9em;
 }
 
 /* navigation */

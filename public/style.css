@@ -2,9 +2,7 @@
   font-family: 'Noto Sans KR', 'sans-serif';
 }
 
-body {
-  background-color: #f6f6f6;
-}
+
 
 body::-webkit-scrollbar {
   width: 1em;

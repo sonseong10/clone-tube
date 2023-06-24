@@ -43,8 +43,7 @@ const VideoItem = memo(
           <div className="info-right">
             <h3 className={styles.title}>{video.title}</h3>
             <p className={styles.desc}>
-              {snippet.channelTitle} • Upload Date:{' '}
-              {snippet.publishedAt.substr(0, 10)}
+              {snippet.channelTitle} • {snippet.publishedAt.substr(0, 10)}
             </p>
           </div>
         </section>
