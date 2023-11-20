@@ -64,7 +64,7 @@
   -webkit-box-orient: vertical;
   margin-bottom: 0.2em;
   font-size: baseFont;
-  font-weight: 400;
+  /* font-weight: 500; */
   overflow: hidden;
 }
 
@@ -81,6 +81,7 @@
 
 .item.column .thumbnail {
   margin-right: 1.6em;
+  width: 32em;
 }
 
 .item.column .info {

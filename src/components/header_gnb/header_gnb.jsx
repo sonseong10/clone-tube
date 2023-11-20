@@ -59,22 +59,27 @@ const HeaderGnb = memo(({ onSearch, modes }) => {
           ref={inputRef}
           onBlur={handleBlur}
         />
-        <ul className={styles.history}>
-          {historyItems.map((item) => {
-            return (
-              <li key={new Date().getTime() + Math.random()}>
-                <button
-                  type="button"
-                  className={styles.historyItem}
-                  value={item}
-                  onClick={historySerch}
-                >
-                  {item}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
+        {historyItems.length > 0 ? (
+          <ul className={styles.history}>
+            {historyItems.map((item) => {
+              return (
+                <li key={new Date().getTime() + Math.random()}>
+                  <button
+                    type="button"
+                    className={styles.historyItem}
+                    value={item}
+                    onClick={historySerch}
+                  >
+                    {item}
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        ) : (
+          <></>
+        )}
+
         <button
           type="submit"
           className={styles.submitBtn}

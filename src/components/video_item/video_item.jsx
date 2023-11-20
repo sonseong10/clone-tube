@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import styles from '../../assets/style/video_item.module.css'
+import elapsedTime from '../../utils/elapsedTime'
 
 const VideoItem = memo(
   ({
@@ -43,7 +44,7 @@ const VideoItem = memo(
           <div className="info-right">
             <h3 className={styles.title}>{video.title}</h3>
             <p className={styles.desc}>
-              {snippet.channelTitle} • {snippet.publishedAt.substr(0, 10)}
+              {snippet.channelTitle} • {elapsedTime(snippet.publishedAt)}
             </p>
           </div>
         </section>

@@ -13,6 +13,8 @@
   position: relative;
   margin: 0 auto;
   width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .iframeWrap {
@@ -40,7 +42,6 @@
   margin: 0;
   padding: 0.6em 0;
   font-size: midFont;
-  font-weight: 400;
   overflow: hidden;
 }
 

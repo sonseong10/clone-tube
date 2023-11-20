@@ -64,7 +64,9 @@ function App({ youtube }) {
     setSelectedVideo(video)
   }, [])
 
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(
+    window.innerWidth >= 1280 ? true : false
+  )
   useEffect(() => {
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1280) {
@@ -74,12 +76,11 @@ function App({ youtube }) {
       }
     })
   }, [])
-
   return (
     <>
       <HeaderGnb onSearch={search} modes={dark} />
       <div className={styles.wrapper}>
-        {!selectedVideo && (
+        {isActive && !selectedVideo ? (
           <aside
             className={`${styles.gnb} ${dark ? styles.dark : styles.light}`}
           >
@@ -182,11 +183,13 @@ function App({ youtube }) {
               </div>
             </nav>
           </aside>
+        ) : (
+          <></>
         )}
 
         <main
           className={`${styles.container} ${
-            selectedVideo || !isActive ? '' : styles.isOpen
+            selectedVideo || !isActive ? styles.isClose : styles.isOpen
           }`}
         >
           {selectedVideo && (
