@@ -15,7 +15,7 @@ function App({ youtube }) {
   const [videos, setVideos] = useState([])
   const [selectedVideo, setSelectedVideo] = useState(null)
   const [toggleLike, setToggleLike] = useState('Like')
-  const [title, setTitle] = useState('CloneTube')
+  const [title, setTitle] = useState('너튜브')
 
   const [dark, setDark] = useState(localStorage.getItem('darkMode') === 'true')
 

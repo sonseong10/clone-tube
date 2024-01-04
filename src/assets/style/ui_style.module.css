@@ -16,18 +16,28 @@
 
 /* logo */
 .logo {
-  display: block;
+  display: flex;
   width: 12.2em;
   height: 2.6em;
   background-image: url('../../assets/images/logo.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  user-select:none
+}
+
+.logo h1 {
+  padding-left: 3rem;
+  margin: 0;
 }
 
 /* logo dark */
 .logo.dark {
   background-image: url('../../assets/images/dark_mode_logo.svg');
+}
+
+.logo.dark h1 {
+  color: #fff;
 }
 
 /* controller */

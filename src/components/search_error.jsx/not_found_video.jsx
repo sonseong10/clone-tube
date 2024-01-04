@@ -3,7 +3,7 @@ import styles from '../../assets/style/search_error.module.css'
 
 const NotFoundContainer = ({ modes, setTitle }) => {
   const modeType = modes === true ? styles.light : styles.dark
-  setTitle('CloneTube')
+  setTitle('너튜브')
   return (
     <section className={`${styles.wrapper} ${modeType}`}>
       <div className={styles.imgContainer}>
