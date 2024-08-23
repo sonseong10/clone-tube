@@ -1,4 +1,4 @@
-import { myStyle } from "../styles/test.css";
+import * as styles from "../styles/test.css";
 export default function Home() {
-  return <h1 className={myStyle}>스타일테스트</h1>;
+  return <h1 className={styles.myStyle}>스타일테스트</h1>;
 }
